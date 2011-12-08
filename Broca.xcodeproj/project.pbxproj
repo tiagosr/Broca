@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B181F044149070A0000298E5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B181F043149070A0000298E5 /* Cocoa.framework */; };
+		B181F04E149070A0000298E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B181F04C149070A0000298E5 /* InfoPlist.strings */; };
+		B181F052149070A0000298E5 /* Broca.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F051149070A0000298E5 /* Broca.m */; };
+		B181F05A149070A0000298E5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B181F059149070A0000298E5 /* SenTestingKit.framework */; };
+		B181F05B149070A0000298E5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B181F043149070A0000298E5 /* Cocoa.framework */; };
+		B181F05E149070A0000298E5 /* Broca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B181F040149070A0000298E5 /* Broca.framework */; };
+		B181F064149070A0000298E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B181F062149070A0000298E5 /* InfoPlist.strings */; };
+		B181F066149070A0000298E5 /* BrocaTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B181F065149070A0000298E5 /* BrocaTests.h */; };
+		B181F068149070A0000298E5 /* BrocaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F067149070A0000298E5 /* BrocaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B181F05C149070A0000298E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B181F036149070A0000298E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B181F03F149070A0000298E5;
+			remoteInfo = Broca;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B181F040149070A0000298E5 /* Broca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Broca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B181F043149070A0000298E5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B181F046149070A0000298E5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B181F047149070A0000298E5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B181F048149070A0000298E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B181F04B149070A0000298E5 /* Broca-Info.plist */ = {isa = PBXFileReference; path = "Broca-Info.plist"; sourceTree = "<group>"; };
+		B181F04D149070A0000298E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B181F04F149070A0000298E5 /* Broca-Prefix.pch */ = {isa = PBXFileReference; path = "Broca-Prefix.pch"; sourceTree = "<group>"; };
+		B181F050149070A0000298E5 /* Broca.h */ = {isa = PBXFileReference; path = Broca.h; sourceTree = "<group>"; };
+		B181F051149070A0000298E5 /* Broca.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Broca.m; sourceTree = "<group>"; };
+		B181F058149070A0000298E5 /* BrocaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrocaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B181F059149070A0000298E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B181F061149070A0000298E5 /* BrocaTests-Info.plist */ = {isa = PBXFileReference; path = "BrocaTests-Info.plist"; sourceTree = "<group>"; };
+		B181F063149070A0000298E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B181F065149070A0000298E5 /* BrocaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrocaTests.h; sourceTree = "<group>"; };
+		B181F067149070A0000298E5 /* BrocaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrocaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B181F03C149070A0000298E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F044149070A0000298E5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B181F054149070A0000298E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F05A149070A0000298E5 /* SenTestingKit.framework in Frameworks */,
+				B181F05B149070A0000298E5 /* Cocoa.framework in Frameworks */,
+				B181F05E149070A0000298E5 /* Broca.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B181F034149070A0000298E5 = {
+			isa = PBXGroup;
+			children = (
+				B181F049149070A0000298E5 /* Broca */,
+				B181F05F149070A0000298E5 /* BrocaTests */,
+				B181F042149070A0000298E5 /* Frameworks */,
+				B181F041149070A0000298E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B181F041149070A0000298E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B181F040149070A0000298E5 /* Broca.framework */,
+				B181F058149070A0000298E5 /* BrocaTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B181F042149070A0000298E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B181F043149070A0000298E5 /* Cocoa.framework */,
+				B181F059149070A0000298E5 /* SenTestingKit.framework */,
+				B181F045149070A0000298E5 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B181F045149070A0000298E5 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B181F046149070A0000298E5 /* AppKit.framework */,
+				B181F047149070A0000298E5 /* CoreData.framework */,
+				B181F048149070A0000298E5 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B181F049149070A0000298E5 /* Broca */ = {
+			isa = PBXGroup;
+			children = (
+				B181F050149070A0000298E5 /* Broca.h */,
+				B181F051149070A0000298E5 /* Broca.m */,
+				B181F04A149070A0000298E5 /* Supporting Files */,
+			);
+			path = Broca;
+			sourceTree = "<group>";
+		};
+		B181F04A149070A0000298E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B181F04B149070A0000298E5 /* Broca-Info.plist */,
+				B181F04C149070A0000298E5 /* InfoPlist.strings */,
+				B181F04F149070A0000298E5 /* Broca-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B181F05F149070A0000298E5 /* BrocaTests */ = {
+			isa = PBXGroup;
+			children = (
+				B181F065149070A0000298E5 /* BrocaTests.h */,
+				B181F067149070A0000298E5 /* BrocaTests.m */,
+				B181F060149070A0000298E5 /* Supporting Files */,
+			);
+			path = BrocaTests;
+			sourceTree = "<group>";
+		};
+		B181F060149070A0000298E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B181F061149070A0000298E5 /* BrocaTests-Info.plist */,
+				B181F062149070A0000298E5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B181F03D149070A0000298E5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B181F03F149070A0000298E5 /* Broca */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B181F06B149070A0000298E5 /* Build configuration list for PBXNativeTarget "Broca" */;
+			buildPhases = (
+				B181F03B149070A0000298E5 /* Sources */,
+				B181F03C149070A0000298E5 /* Frameworks */,
+				B181F03D149070A0000298E5 /* Headers */,
+				B181F03E149070A0000298E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Broca;
+			productName = Broca;
+			productReference = B181F040149070A0000298E5 /* Broca.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B181F057149070A0000298E5 /* BrocaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B181F06E149070A0000298E5 /* Build configuration list for PBXNativeTarget "BrocaTests" */;
+			buildPhases = (
+				B181F053149070A0000298E5 /* Sources */,
+				B181F054149070A0000298E5 /* Frameworks */,
+				B181F055149070A0000298E5 /* Resources */,
+				B181F056149070A0000298E5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B181F05D149070A0000298E5 /* PBXTargetDependency */,
+			);
+			name = BrocaTests;
+			productName = BrocaTests;
+			productReference = B181F058149070A0000298E5 /* BrocaTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B181F036149070A0000298E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Pixel of View";
+			};
+			buildConfigurationList = B181F039149070A0000298E5 /* Build configuration list for PBXProject "Broca" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B181F034149070A0000298E5;
+			productRefGroup = B181F041149070A0000298E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B181F03F149070A0000298E5 /* Broca */,
+				B181F057149070A0000298E5 /* BrocaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B181F03E149070A0000298E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F04E149070A0000298E5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B181F055149070A0000298E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F064149070A0000298E5 /* InfoPlist.strings in Resources */,
+				B181F066149070A0000298E5 /* BrocaTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B181F056149070A0000298E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B181F03B149070A0000298E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F052149070A0000298E5 /* Broca.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B181F053149070A0000298E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B181F068149070A0000298E5 /* BrocaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B181F05D149070A0000298E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B181F03F149070A0000298E5 /* Broca */;
+			targetProxy = B181F05C149070A0000298E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B181F04C149070A0000298E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B181F04D149070A0000298E5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B181F062149070A0000298E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B181F063149070A0000298E5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B181F069149070A0000298E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B181F06A149070A0000298E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B181F06C149070A0000298E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Broca/Broca-Prefix.pch";
+				INFOPLIST_FILE = "Broca/Broca-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		B181F06D149070A0000298E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Broca/Broca-Prefix.pch";
+				INFOPLIST_FILE = "Broca/Broca-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		B181F06F149070A0000298E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Broca/Broca-Prefix.pch";
+				INFOPLIST_FILE = "BrocaTests/BrocaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B181F070149070A0000298E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Broca/Broca-Prefix.pch";
+				INFOPLIST_FILE = "BrocaTests/BrocaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B181F039149070A0000298E5 /* Build configuration list for PBXProject "Broca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B181F069149070A0000298E5 /* Debug */,
+				B181F06A149070A0000298E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B181F06B149070A0000298E5 /* Build configuration list for PBXNativeTarget "Broca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B181F06C149070A0000298E5 /* Debug */,
+				B181F06D149070A0000298E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B181F06E149070A0000298E5 /* Build configuration list for PBXNativeTarget "BrocaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B181F06F149070A0000298E5 /* Debug */,
+				B181F070149070A0000298E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B181F036149070A0000298E5 /* Project object */;
+}
