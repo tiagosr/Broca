@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10E36051491BADC00B277A7 /* PVNegativeLookAhead.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36031491BADC00B277A7 /* PVNegativeLookAhead.h */; };
+		B10E36061491BADC00B277A7 /* PVNegativeLookAhead.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36041491BADC00B277A7 /* PVNegativeLookAhead.m */; };
+		B10E36091491BAF300B277A7 /* PVPositiveLookAhead.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36071491BAF300B277A7 /* PVPositiveLookAhead.h */; };
+		B10E360A1491BAF300B277A7 /* PVPositiveLookAhead.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36081491BAF300B277A7 /* PVPositiveLookAhead.m */; };
+		B10E360D1491BB0200B277A7 /* PVErrorName.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E360B1491BB0200B277A7 /* PVErrorName.h */; };
+		B10E360E1491BB0200B277A7 /* PVErrorName.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E360C1491BB0200B277A7 /* PVErrorName.m */; };
+		B10E36111491BB0D00B277A7 /* PVErrorChoice.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E360F1491BB0D00B277A7 /* PVErrorChoice.h */; };
+		B10E36121491BB0D00B277A7 /* PVErrorChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36101491BB0D00B277A7 /* PVErrorChoice.m */; };
+		B10E36151491C84D00B277A7 /* PVParserContext.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36131491C84D00B277A7 /* PVParserContext.h */; };
+		B10E36161491C84D00B277A7 /* PVParserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36141491C84D00B277A7 /* PVParserContext.m */; };
+		B10E361C1491CE7600B277A7 /* PVParserContextMemo.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E361A1491CE7600B277A7 /* PVParserContextMemo.h */; };
+		B10E361D1491CE7600B277A7 /* PVParserContextMemo.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E361B1491CE7600B277A7 /* PVParserContextMemo.m */; };
+		B10E36251493B79D00B277A7 /* PVEBNFParserBootstrap.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */; };
+		B10E36261493B79D00B277A7 /* PVEBNFParserBootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */; };
+		B10E36291493E4F100B277A7 /* PVForward.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36271493E4EA00B277A7 /* PVForward.h */; };
+		B10E362A1493E4F100B277A7 /* PVForward.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36281493E4EC00B277A7 /* PVForward.m */; };
 		B181F044149070A0000298E5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B181F043149070A0000298E5 /* Cocoa.framework */; };
 		B181F04E149070A0000298E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B181F04C149070A0000298E5 /* InfoPlist.strings */; };
 		B181F052149070A0000298E5 /* Broca.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F051149070A0000298E5 /* Broca.m */; };
@@ -16,6 +32,33 @@
 		B181F064149070A0000298E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B181F062149070A0000298E5 /* InfoPlist.strings */; };
 		B181F066149070A0000298E5 /* BrocaTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B181F065149070A0000298E5 /* BrocaTests.h */; };
 		B181F068149070A0000298E5 /* BrocaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F067149070A0000298E5 /* BrocaTests.m */; };
+		B181F0731490711D000298E5 /* PVParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0711490711D000298E5 /* PVParser.h */; };
+		B181F0741490711D000298E5 /* PVParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0721490711D000298E5 /* PVParser.m */; };
+		B181F07B149071F8000298E5 /* PVSyntaxNode.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F079149071F8000298E5 /* PVSyntaxNode.h */; };
+		B181F07C149071F8000298E5 /* PVSyntaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F07A149071F8000298E5 /* PVSyntaxNode.m */; };
+		B181F07E149076A3000298E5 /* PVSyntaxNodeTraverser.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F07D149076A3000298E5 /* PVSyntaxNodeTraverser.h */; };
+		B181F0811490D20D000298E5 /* PVCompiledGrammar.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F07F1490D20D000298E5 /* PVCompiledGrammar.h */; };
+		B181F0821490D20D000298E5 /* PVCompiledGrammar.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0801490D20D000298E5 /* PVCompiledGrammar.m */; };
+		B181F0871491B52A000298E5 /* PVName.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0851491B529000298E5 /* PVName.h */; };
+		B181F0881491B52A000298E5 /* PVName.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0861491B52A000298E5 /* PVName.m */; };
+		B181F08B1491B61F000298E5 /* PVRule.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0891491B61E000298E5 /* PVRule.h */; };
+		B181F08C1491B61F000298E5 /* PVRule.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F08A1491B61E000298E5 /* PVRule.m */; };
+		B181F08F1491B77C000298E5 /* PVCharacter.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F08D1491B77B000298E5 /* PVCharacter.h */; };
+		B181F0901491B77C000298E5 /* PVCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F08E1491B77C000298E5 /* PVCharacter.m */; };
+		B181F0931491B870000298E5 /* PVDot.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0911491B86F000298E5 /* PVDot.h */; };
+		B181F0941491B870000298E5 /* PVDot.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0921491B86F000298E5 /* PVDot.m */; };
+		B181F0971491B895000298E5 /* PVOrderedChoice.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0951491B893000298E5 /* PVOrderedChoice.h */; };
+		B181F0981491B895000298E5 /* PVOrderedChoice.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0961491B894000298E5 /* PVOrderedChoice.m */; };
+		B181F09B1491B8A9000298E5 /* PVSequence.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0991491B8A8000298E5 /* PVSequence.h */; };
+		B181F09C1491B8A9000298E5 /* PVSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F09A1491B8A8000298E5 /* PVSequence.m */; };
+		B181F09F1491B8C4000298E5 /* PVLiteral.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F09D1491B8C2000298E5 /* PVLiteral.h */; };
+		B181F0A01491B8C4000298E5 /* PVLiteral.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F09E1491B8C3000298E5 /* PVLiteral.m */; };
+		B181F0A31491B9CA000298E5 /* PVZeroOrMore.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0A11491B9C8000298E5 /* PVZeroOrMore.h */; };
+		B181F0A41491B9CA000298E5 /* PVZeroOrMore.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */; };
+		B181F0A71491B9F0000298E5 /* PVOneOrMore.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0A51491B9EE000298E5 /* PVOneOrMore.h */; };
+		B181F0A81491B9F0000298E5 /* PVOneOrMore.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0A61491B9EF000298E5 /* PVOneOrMore.m */; };
+		B181F0AB1491BA0C000298E5 /* PVOptional.h in Headers */ = {isa = PBXBuildFile; fileRef = B181F0A91491B9FE000298E5 /* PVOptional.h */; };
+		B181F0AC1491BA0C000298E5 /* PVOptional.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0AA1491BA03000298E5 /* PVOptional.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,22 +72,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B10E36031491BADC00B277A7 /* PVNegativeLookAhead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVNegativeLookAhead.h; sourceTree = "<group>"; };
+		B10E36041491BADC00B277A7 /* PVNegativeLookAhead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVNegativeLookAhead.m; sourceTree = "<group>"; };
+		B10E36071491BAF300B277A7 /* PVPositiveLookAhead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVPositiveLookAhead.h; sourceTree = "<group>"; };
+		B10E36081491BAF300B277A7 /* PVPositiveLookAhead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVPositiveLookAhead.m; sourceTree = "<group>"; };
+		B10E360B1491BB0200B277A7 /* PVErrorName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVErrorName.h; sourceTree = "<group>"; };
+		B10E360C1491BB0200B277A7 /* PVErrorName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVErrorName.m; sourceTree = "<group>"; };
+		B10E360F1491BB0D00B277A7 /* PVErrorChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVErrorChoice.h; sourceTree = "<group>"; };
+		B10E36101491BB0D00B277A7 /* PVErrorChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVErrorChoice.m; sourceTree = "<group>"; };
+		B10E36131491C84D00B277A7 /* PVParserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVParserContext.h; sourceTree = "<group>"; };
+		B10E36141491C84D00B277A7 /* PVParserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVParserContext.m; sourceTree = "<group>"; };
+		B10E361A1491CE7600B277A7 /* PVParserContextMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVParserContextMemo.h; sourceTree = "<group>"; };
+		B10E361B1491CE7600B277A7 /* PVParserContextMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVParserContextMemo.m; sourceTree = "<group>"; };
+		B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVEBNFParserBootstrap.h; sourceTree = "<group>"; };
+		B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVEBNFParserBootstrap.m; sourceTree = "<group>"; };
+		B10E36271493E4EA00B277A7 /* PVForward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVForward.h; sourceTree = "<group>"; };
+		B10E36281493E4EC00B277A7 /* PVForward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVForward.m; sourceTree = "<group>"; };
 		B181F040149070A0000298E5 /* Broca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Broca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B181F043149070A0000298E5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B181F046149070A0000298E5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B181F047149070A0000298E5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B181F048149070A0000298E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B181F04B149070A0000298E5 /* Broca-Info.plist */ = {isa = PBXFileReference; path = "Broca-Info.plist"; sourceTree = "<group>"; };
+		B181F04B149070A0000298E5 /* Broca-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Broca-Info.plist"; sourceTree = "<group>"; };
 		B181F04D149070A0000298E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B181F04F149070A0000298E5 /* Broca-Prefix.pch */ = {isa = PBXFileReference; path = "Broca-Prefix.pch"; sourceTree = "<group>"; };
-		B181F050149070A0000298E5 /* Broca.h */ = {isa = PBXFileReference; path = Broca.h; sourceTree = "<group>"; };
+		B181F04F149070A0000298E5 /* Broca-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Broca-Prefix.pch"; sourceTree = "<group>"; };
+		B181F050149070A0000298E5 /* Broca.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Broca.h; sourceTree = "<group>"; };
 		B181F051149070A0000298E5 /* Broca.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Broca.m; sourceTree = "<group>"; };
 		B181F058149070A0000298E5 /* BrocaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrocaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B181F059149070A0000298E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B181F061149070A0000298E5 /* BrocaTests-Info.plist */ = {isa = PBXFileReference; path = "BrocaTests-Info.plist"; sourceTree = "<group>"; };
+		B181F061149070A0000298E5 /* BrocaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BrocaTests-Info.plist"; sourceTree = "<group>"; };
 		B181F063149070A0000298E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B181F065149070A0000298E5 /* BrocaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrocaTests.h; sourceTree = "<group>"; };
 		B181F067149070A0000298E5 /* BrocaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrocaTests.m; sourceTree = "<group>"; };
+		B181F0711490711D000298E5 /* PVParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVParser.h; sourceTree = "<group>"; };
+		B181F0721490711D000298E5 /* PVParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVParser.m; sourceTree = "<group>"; };
+		B181F079149071F8000298E5 /* PVSyntaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSyntaxNode.h; sourceTree = "<group>"; };
+		B181F07A149071F8000298E5 /* PVSyntaxNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVSyntaxNode.m; sourceTree = "<group>"; };
+		B181F07D149076A3000298E5 /* PVSyntaxNodeTraverser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSyntaxNodeTraverser.h; sourceTree = "<group>"; };
+		B181F07F1490D20D000298E5 /* PVCompiledGrammar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVCompiledGrammar.h; sourceTree = "<group>"; };
+		B181F0801490D20D000298E5 /* PVCompiledGrammar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVCompiledGrammar.m; sourceTree = "<group>"; };
+		B181F0851491B529000298E5 /* PVName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PVName.h; path = ../PVName.h; sourceTree = "<group>"; };
+		B181F0861491B52A000298E5 /* PVName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PVName.m; path = ../PVName.m; sourceTree = "<group>"; };
+		B181F0891491B61E000298E5 /* PVRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRule.h; sourceTree = "<group>"; };
+		B181F08A1491B61E000298E5 /* PVRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRule.m; sourceTree = "<group>"; };
+		B181F08D1491B77B000298E5 /* PVCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVCharacter.h; sourceTree = "<group>"; };
+		B181F08E1491B77C000298E5 /* PVCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVCharacter.m; sourceTree = "<group>"; };
+		B181F0911491B86F000298E5 /* PVDot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVDot.h; sourceTree = "<group>"; };
+		B181F0921491B86F000298E5 /* PVDot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVDot.m; sourceTree = "<group>"; };
+		B181F0951491B893000298E5 /* PVOrderedChoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVOrderedChoice.h; sourceTree = "<group>"; };
+		B181F0961491B894000298E5 /* PVOrderedChoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVOrderedChoice.m; sourceTree = "<group>"; };
+		B181F0991491B8A8000298E5 /* PVSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSequence.h; sourceTree = "<group>"; };
+		B181F09A1491B8A8000298E5 /* PVSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVSequence.m; sourceTree = "<group>"; };
+		B181F09D1491B8C2000298E5 /* PVLiteral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVLiteral.h; sourceTree = "<group>"; };
+		B181F09E1491B8C3000298E5 /* PVLiteral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVLiteral.m; sourceTree = "<group>"; };
+		B181F0A11491B9C8000298E5 /* PVZeroOrMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVZeroOrMore.h; sourceTree = "<group>"; };
+		B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVZeroOrMore.m; sourceTree = "<group>"; };
+		B181F0A51491B9EE000298E5 /* PVOneOrMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVOneOrMore.h; sourceTree = "<group>"; };
+		B181F0A61491B9EF000298E5 /* PVOneOrMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVOneOrMore.m; sourceTree = "<group>"; };
+		B181F0A91491B9FE000298E5 /* PVOptional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVOptional.h; sourceTree = "<group>"; };
+		B181F0AA1491BA03000298E5 /* PVOptional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVOptional.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +155,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B10E36011491BAAD00B277A7 /* Rule Objects */ = {
+			isa = PBXGroup;
+			children = (
+				B181F0891491B61E000298E5 /* PVRule.h */,
+				B181F08A1491B61E000298E5 /* PVRule.m */,
+				B181F0851491B529000298E5 /* PVName.h */,
+				B181F0861491B52A000298E5 /* PVName.m */,
+				B181F08D1491B77B000298E5 /* PVCharacter.h */,
+				B181F08E1491B77C000298E5 /* PVCharacter.m */,
+				B181F0911491B86F000298E5 /* PVDot.h */,
+				B181F0921491B86F000298E5 /* PVDot.m */,
+				B181F0951491B893000298E5 /* PVOrderedChoice.h */,
+				B181F0961491B894000298E5 /* PVOrderedChoice.m */,
+				B181F0991491B8A8000298E5 /* PVSequence.h */,
+				B181F09A1491B8A8000298E5 /* PVSequence.m */,
+				B181F09D1491B8C2000298E5 /* PVLiteral.h */,
+				B181F09E1491B8C3000298E5 /* PVLiteral.m */,
+				B181F0A11491B9C8000298E5 /* PVZeroOrMore.h */,
+				B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */,
+				B181F0A51491B9EE000298E5 /* PVOneOrMore.h */,
+				B181F0A61491B9EF000298E5 /* PVOneOrMore.m */,
+				B181F0A91491B9FE000298E5 /* PVOptional.h */,
+				B181F0AA1491BA03000298E5 /* PVOptional.m */,
+				B10E36031491BADC00B277A7 /* PVNegativeLookAhead.h */,
+				B10E36041491BADC00B277A7 /* PVNegativeLookAhead.m */,
+				B10E36071491BAF300B277A7 /* PVPositiveLookAhead.h */,
+				B10E36081491BAF300B277A7 /* PVPositiveLookAhead.m */,
+				B10E360B1491BB0200B277A7 /* PVErrorName.h */,
+				B10E360C1491BB0200B277A7 /* PVErrorName.m */,
+				B10E360F1491BB0D00B277A7 /* PVErrorChoice.h */,
+				B10E36101491BB0D00B277A7 /* PVErrorChoice.m */,
+				B10E36271493E4EA00B277A7 /* PVForward.h */,
+				B10E36281493E4EC00B277A7 /* PVForward.m */,
+			);
+			name = "Rule Objects";
+			sourceTree = "<group>";
+		};
+		B10E36221493B76700B277A7 /* EBNF Parser Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */,
+				B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */,
+			);
+			name = "EBNF Parser Bootstrap";
+			sourceTree = "<group>";
+		};
 		B181F034149070A0000298E5 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +246,19 @@
 				B181F050149070A0000298E5 /* Broca.h */,
 				B181F051149070A0000298E5 /* Broca.m */,
 				B181F04A149070A0000298E5 /* Supporting Files */,
+				B181F0711490711D000298E5 /* PVParser.h */,
+				B181F0721490711D000298E5 /* PVParser.m */,
+				B10E36131491C84D00B277A7 /* PVParserContext.h */,
+				B10E36141491C84D00B277A7 /* PVParserContext.m */,
+				B10E361A1491CE7600B277A7 /* PVParserContextMemo.h */,
+				B10E361B1491CE7600B277A7 /* PVParserContextMemo.m */,
+				B181F07F1490D20D000298E5 /* PVCompiledGrammar.h */,
+				B181F0801490D20D000298E5 /* PVCompiledGrammar.m */,
+				B10E36011491BAAD00B277A7 /* Rule Objects */,
+				B181F07D149076A3000298E5 /* PVSyntaxNodeTraverser.h */,
+				B181F079149071F8000298E5 /* PVSyntaxNode.h */,
+				B181F07A149071F8000298E5 /* PVSyntaxNode.m */,
+				B10E36221493B76700B277A7 /* EBNF Parser Bootstrap */,
 			);
 			path = Broca;
 			sourceTree = "<group>";
@@ -154,6 +299,28 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B181F0731490711D000298E5 /* PVParser.h in Headers */,
+				B181F07B149071F8000298E5 /* PVSyntaxNode.h in Headers */,
+				B181F07E149076A3000298E5 /* PVSyntaxNodeTraverser.h in Headers */,
+				B181F0811490D20D000298E5 /* PVCompiledGrammar.h in Headers */,
+				B181F0871491B52A000298E5 /* PVName.h in Headers */,
+				B181F08B1491B61F000298E5 /* PVRule.h in Headers */,
+				B181F08F1491B77C000298E5 /* PVCharacter.h in Headers */,
+				B181F0931491B870000298E5 /* PVDot.h in Headers */,
+				B181F0971491B895000298E5 /* PVOrderedChoice.h in Headers */,
+				B181F09B1491B8A9000298E5 /* PVSequence.h in Headers */,
+				B181F09F1491B8C4000298E5 /* PVLiteral.h in Headers */,
+				B181F0A31491B9CA000298E5 /* PVZeroOrMore.h in Headers */,
+				B181F0A71491B9F0000298E5 /* PVOneOrMore.h in Headers */,
+				B181F0AB1491BA0C000298E5 /* PVOptional.h in Headers */,
+				B10E36051491BADC00B277A7 /* PVNegativeLookAhead.h in Headers */,
+				B10E36091491BAF300B277A7 /* PVPositiveLookAhead.h in Headers */,
+				B10E360D1491BB0200B277A7 /* PVErrorName.h in Headers */,
+				B10E36111491BB0D00B277A7 /* PVErrorChoice.h in Headers */,
+				B10E36151491C84D00B277A7 /* PVParserContext.h in Headers */,
+				B10E361C1491CE7600B277A7 /* PVParserContextMemo.h in Headers */,
+				B10E36251493B79D00B277A7 /* PVEBNFParserBootstrap.h in Headers */,
+				B10E36291493E4F100B277A7 /* PVForward.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +432,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				B181F052149070A0000298E5 /* Broca.m in Sources */,
+				B181F0741490711D000298E5 /* PVParser.m in Sources */,
+				B181F07C149071F8000298E5 /* PVSyntaxNode.m in Sources */,
+				B181F0821490D20D000298E5 /* PVCompiledGrammar.m in Sources */,
+				B181F0881491B52A000298E5 /* PVName.m in Sources */,
+				B181F08C1491B61F000298E5 /* PVRule.m in Sources */,
+				B181F0901491B77C000298E5 /* PVCharacter.m in Sources */,
+				B181F0941491B870000298E5 /* PVDot.m in Sources */,
+				B181F0981491B895000298E5 /* PVOrderedChoice.m in Sources */,
+				B181F09C1491B8A9000298E5 /* PVSequence.m in Sources */,
+				B181F0A01491B8C4000298E5 /* PVLiteral.m in Sources */,
+				B181F0A41491B9CA000298E5 /* PVZeroOrMore.m in Sources */,
+				B181F0A81491B9F0000298E5 /* PVOneOrMore.m in Sources */,
+				B181F0AC1491BA0C000298E5 /* PVOptional.m in Sources */,
+				B10E36061491BADC00B277A7 /* PVNegativeLookAhead.m in Sources */,
+				B10E360A1491BAF300B277A7 /* PVPositiveLookAhead.m in Sources */,
+				B10E360E1491BB0200B277A7 /* PVErrorName.m in Sources */,
+				B10E36121491BB0D00B277A7 /* PVErrorChoice.m in Sources */,
+				B10E36161491C84D00B277A7 /* PVParserContext.m in Sources */,
+				B10E361D1491CE7600B277A7 /* PVParserContextMemo.m in Sources */,
+				B10E36261493B79D00B277A7 /* PVEBNFParserBootstrap.m in Sources */,
+				B10E362A1493E4F100B277A7 /* PVForward.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +610,7 @@
 				B181F06D149070A0000298E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B181F06E149070A0000298E5 /* Build configuration list for PBXNativeTarget "BrocaTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +619,7 @@
 				B181F070149070A0000298E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

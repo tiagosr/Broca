@@ -7,7 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "Broca.h"
 @interface BrocaTests : SenTestCase
 
 @end

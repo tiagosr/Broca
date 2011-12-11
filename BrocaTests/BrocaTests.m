@@ -14,19 +14,25 @@
 {
     [super setUp];
     
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
     
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testLiteralParse
 {
-    STFail(@"Unit tests are not implemented yet in BrocaTests");
+    PVParser *stringparser = [[PVParser alloc] initWithParserTree:[PVLiteral :@"oi"]];
+    PVSyntaxNode *node = [stringparser parseString:@"oi"];
+    STAssertNotNil(node, @"Node should be not nil");
+    STAssertTrue([node isKindOfClass:[PVSyntaxNode class]], @"Node should be a PVSyntaxNode");
+    STAssertNotNil(node.children, @"there should be children within node");
+    STAssertTrue([node.children count]==1, @"there should be only one child");
+    NSString *child = [node.children objectAtIndex:0];
+    STAssertNotNil(child, @"child should not be null");
+    STAssertTrue([child isEqualToString:@"oi"], @"child should be the string we search for");
 }
 
 @end
