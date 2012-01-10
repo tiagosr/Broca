@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Broca_iOS' target in the 'Broca_iOS' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

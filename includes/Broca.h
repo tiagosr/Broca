@@ -14,6 +14,7 @@
 #import "PVCharacter.h"
 #import "PVDot.h"
 #import "PVForward.h"
+#import "PVIgnore.h"
 #import "PVLiteral.h"
 #import "PVName.h"
 #import "PVNegativeLookAhead.h"

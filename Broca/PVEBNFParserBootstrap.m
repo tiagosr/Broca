@@ -83,9 +83,9 @@
     
     
     PVName *SourceElement = [PVName :@"SourceElement" :
-                                                    [PVOrderedChoice :
-                                                                AssignmentExpression,
-                                                                ErrorAssignmentExpression, nil]];
+                                        [PVOrderedChoice :
+                                            AssignmentExpression,
+                                            ErrorAssignmentExpression, nil]];
     // start of the program
     PVName *start = [PVName :@"start" :[PVSequence :_,[PVZeroOrMore :[PVSequence :SourceElement, _, nil]], nil]];
     return start;
@@ -97,7 +97,6 @@
     if (self) {
         root = [PVEBNFParserBootstrap bootstrap];
     }
-    
     return self;
 }
 
