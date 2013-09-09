@@ -38,6 +38,18 @@
 		B10E36261493B79D00B277A7 /* PVEBNFParserBootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */; };
 		B10E36291493E4F100B277A7 /* PVForward.h in Headers */ = {isa = PBXBuildFile; fileRef = B10E36271493E4EA00B277A7 /* PVForward.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B10E362A1493E4F100B277A7 /* PVForward.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36281493E4EC00B277A7 /* PVForward.m */; };
+		B136B49917DD96BA00FFA946 /* PVJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49717DD96BA00FFA946 /* PVJSONParser.h */; };
+		B136B49A17DD96BA00FFA946 /* PVJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49717DD96BA00FFA946 /* PVJSONParser.h */; };
+		B136B49B17DD96BA00FFA946 /* PVJSONParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49717DD96BA00FFA946 /* PVJSONParser.h */; };
+		B136B49C17DD96BA00FFA946 /* PVJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B49817DD96BA00FFA946 /* PVJSONParser.m */; };
+		B136B49D17DD96BA00FFA946 /* PVJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B49817DD96BA00FFA946 /* PVJSONParser.m */; };
+		B136B49E17DD96BA00FFA946 /* PVJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B49817DD96BA00FFA946 /* PVJSONParser.m */; };
+		B136B4A117DDA0A100FFA946 /* PVRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49F17DDA0A100FFA946 /* PVRegex.h */; };
+		B136B4A217DDA0A100FFA946 /* PVRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49F17DDA0A100FFA946 /* PVRegex.h */; };
+		B136B4A317DDA0A100FFA946 /* PVRegex.h in Headers */ = {isa = PBXBuildFile; fileRef = B136B49F17DDA0A100FFA946 /* PVRegex.h */; };
+		B136B4A417DDA0A100FFA946 /* PVRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B4A017DDA0A100FFA946 /* PVRegex.m */; };
+		B136B4A517DDA0A100FFA946 /* PVRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B4A017DDA0A100FFA946 /* PVRegex.m */; };
+		B136B4A617DDA0A100FFA946 /* PVRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = B136B4A017DDA0A100FFA946 /* PVRegex.m */; };
 		B1512B96149B0BE3002D2909 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1512B95149B0BE3002D2909 /* CoreFoundation.framework */; };
 		B1512B9C149B0BE3002D2909 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1512B9A149B0BE3002D2909 /* InfoPlist.strings */; };
 		B1512BA1149B0D0A002D2909 /* PVCompiledGrammar.m in Sources */ = {isa = PBXBuildFile; fileRef = B196D78D14956ACE0002DEF0 /* PVCompiledGrammar.m */; };
@@ -222,10 +234,14 @@
 		B10E36141491C84D00B277A7 /* PVParserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVParserContext.m; sourceTree = "<group>"; };
 		B10E361A1491CE7600B277A7 /* PVParserContextMemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVParserContextMemo.h; sourceTree = "<group>"; };
 		B10E361B1491CE7600B277A7 /* PVParserContextMemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVParserContextMemo.m; sourceTree = "<group>"; };
-		B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVEBNFParserBootstrap.h; sourceTree = "<group>"; };
+		B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PVEBNFParserBootstrap.h; path = ../includes/PVEBNFParserBootstrap.h; sourceTree = "<group>"; };
 		B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVEBNFParserBootstrap.m; sourceTree = "<group>"; };
 		B10E36271493E4EA00B277A7 /* PVForward.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVForward.h; sourceTree = "<group>"; };
 		B10E36281493E4EC00B277A7 /* PVForward.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVForward.m; sourceTree = "<group>"; };
+		B136B49717DD96BA00FFA946 /* PVJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVJSONParser.h; sourceTree = "<group>"; };
+		B136B49817DD96BA00FFA946 /* PVJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVJSONParser.m; sourceTree = "<group>"; };
+		B136B49F17DDA0A100FFA946 /* PVRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PVRegex.h; path = ../Broca/PVRegex.h; sourceTree = "<group>"; };
+		B136B4A017DDA0A100FFA946 /* PVRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRegex.m; sourceTree = "<group>"; };
 		B1512B8A149B0AEF002D2909 /* Broca copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Broca copy-Info.plist"; path = "/Users/tiagorezende/Projects/Broca/Broca copy-Info.plist"; sourceTree = "<absolute>"; };
 		B1512B8C149B0B29002D2909 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		B1512B8E149B0B54002D2909 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -347,22 +363,23 @@
 		B10E36011491BAAD00B277A7 /* Rule Objects */ = {
 			isa = PBXGroup;
 			children = (
-				B1512BDB149B1239002D2909 /* PVName.m */,
-				B196D79614958A3F0002DEF0 /* PVIgnore.m */,
 				B181F08A1491B61E000298E5 /* PVRule.m */,
 				B181F08E1491B77C000298E5 /* PVCharacter.m */,
+				B136B4A017DDA0A100FFA946 /* PVRegex.m */,
 				B181F0921491B86F000298E5 /* PVDot.m */,
-				B181F0961491B894000298E5 /* PVOrderedChoice.m */,
-				B181F09A1491B8A8000298E5 /* PVSequence.m */,
+				B10E36281493E4EC00B277A7 /* PVForward.m */,
+				B196D79614958A3F0002DEF0 /* PVIgnore.m */,
 				B181F09E1491B8C3000298E5 /* PVLiteral.m */,
-				B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */,
+				B181F0961491B894000298E5 /* PVOrderedChoice.m */,
 				B181F0A61491B9EF000298E5 /* PVOneOrMore.m */,
 				B181F0AA1491BA03000298E5 /* PVOptional.m */,
+				B1512BDB149B1239002D2909 /* PVName.m */,
 				B10E36041491BADC00B277A7 /* PVNegativeLookAhead.m */,
 				B10E36081491BAF300B277A7 /* PVPositiveLookAhead.m */,
+				B181F09A1491B8A8000298E5 /* PVSequence.m */,
 				B10E360C1491BB0200B277A7 /* PVErrorName.m */,
 				B10E36101491BB0D00B277A7 /* PVErrorChoice.m */,
-				B10E36281493E4EC00B277A7 /* PVForward.m */,
+				B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */,
 			);
 			name = "Rule Objects";
 			sourceTree = "<group>";
@@ -370,9 +387,19 @@
 		B10E36221493B76700B277A7 /* EBNF Parser Bootstrap */ = {
 			isa = PBXGroup;
 			children = (
+				B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */,
 				B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */,
 			);
 			name = "EBNF Parser Bootstrap";
+			sourceTree = "<group>";
+		};
+		B136B49617DD967900FFA946 /* JSON Parser */ = {
+			isa = PBXGroup;
+			children = (
+				B136B49717DD96BA00FFA946 /* PVJSONParser.h */,
+				B136B49817DD96BA00FFA946 /* PVJSONParser.m */,
+			);
+			name = "JSON Parser";
 			sourceTree = "<group>";
 		};
 		B1512B97149B0BE3002D2909 /* Broca_iOS */ = {
@@ -396,8 +423,6 @@
 		B181F034149070A0000298E5 = {
 			isa = PBXGroup;
 			children = (
-				B1512B8E149B0B54002D2909 /* Foundation.framework */,
-				B1512B8C149B0B29002D2909 /* CoreFoundation.framework */,
 				B196D6EB149434D60002DEF0 /* README.md */,
 				B196D78B149507BC0002DEF0 /* includes */,
 				B181F049149070A0000298E5 /* Broca */,
@@ -426,6 +451,8 @@
 		B181F042149070A0000298E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1512B8E149B0B54002D2909 /* Foundation.framework */,
+				B1512B8C149B0B29002D2909 /* CoreFoundation.framework */,
 				B181F043149070A0000298E5 /* Cocoa.framework */,
 				B181F059149070A0000298E5 /* SenTestingKit.framework */,
 				B196D723149506510002DEF0 /* Foundation.framework */,
@@ -450,6 +477,7 @@
 		B181F049149070A0000298E5 /* Broca */ = {
 			isa = PBXGroup;
 			children = (
+				B136B49617DD967900FFA946 /* JSON Parser */,
 				B196D78D14956ACE0002DEF0 /* PVCompiledGrammar.m */,
 				B181F051149070A0000298E5 /* Broca.m */,
 				B181F0721490711D000298E5 /* PVParser.m */,
@@ -546,7 +574,6 @@
 				B10E36131491C84D00B277A7 /* PVParserContext.h */,
 				B10E361A1491CE7600B277A7 /* PVParserContextMemo.h */,
 				B181F07F1490D20D000298E5 /* PVCompiledGrammar.h */,
-				B10E36231493B79D00B277A7 /* PVEBNFParserBootstrap.h */,
 				B181F050149070A0000298E5 /* Broca.h */,
 				B181F079149071F8000298E5 /* PVSyntaxNode.h */,
 				B181F0711490711D000298E5 /* PVParser.h */,
@@ -556,6 +583,7 @@
 				B10E360B1491BB0200B277A7 /* PVErrorName.h */,
 				B10E360F1491BB0D00B277A7 /* PVErrorChoice.h */,
 				B10E36271493E4EA00B277A7 /* PVForward.h */,
+				B136B49F17DDA0A100FFA946 /* PVRegex.h */,
 			);
 			path = includes;
 			sourceTree = SOURCE_ROOT;
@@ -591,6 +619,8 @@
 				B1512BF5149B13C5002D2909 /* PVErrorName.h in Headers */,
 				B1512BF6149B13C5002D2909 /* PVErrorChoice.h in Headers */,
 				B1512BF7149B13C5002D2909 /* PVForward.h in Headers */,
+				B136B49B17DD96BA00FFA946 /* PVJSONParser.h in Headers */,
+				B136B4A317DDA0A100FFA946 /* PVRegex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +652,8 @@
 				B10E36251493B79D00B277A7 /* PVEBNFParserBootstrap.h in Headers */,
 				B10E36291493E4F100B277A7 /* PVForward.h in Headers */,
 				B196D792149588EE0002DEF0 /* PVIgnore.h in Headers */,
+				B136B49917DD96BA00FFA946 /* PVJSONParser.h in Headers */,
+				B136B4A117DDA0A100FFA946 /* PVRegex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +685,8 @@
 				B196D776149506D60002DEF0 /* PVSyntaxNode.h in Headers */,
 				B196D777149506D60002DEF0 /* PVEBNFParserBootstrap.h in Headers */,
 				B196D793149588EE0002DEF0 /* PVIgnore.h in Headers */,
+				B136B49A17DD96BA00FFA946 /* PVJSONParser.h in Headers */,
+				B136B4A217DDA0A100FFA946 /* PVRegex.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,6 +921,8 @@
 				B1512BB6149B0D0A002D2909 /* PVSyntaxNode.m in Sources */,
 				B1512BB7149B0D0A002D2909 /* PVEBNFParserBootstrap.m in Sources */,
 				B1512BDE149B1239002D2909 /* PVName.m in Sources */,
+				B136B49E17DD96BA00FFA946 /* PVJSONParser.m in Sources */,
+				B136B4A617DDA0A100FFA946 /* PVRegex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -917,6 +953,8 @@
 				B196D78E14956ACE0002DEF0 /* PVCompiledGrammar.m in Sources */,
 				B196D79714958A3F0002DEF0 /* PVIgnore.m in Sources */,
 				B1512BDC149B1239002D2909 /* PVName.m in Sources */,
+				B136B49C17DD96BA00FFA946 /* PVJSONParser.m in Sources */,
+				B136B4A417DDA0A100FFA946 /* PVRegex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,6 +994,8 @@
 				B196D78F14956ACE0002DEF0 /* PVCompiledGrammar.m in Sources */,
 				B196D79814958A3F0002DEF0 /* PVIgnore.m in Sources */,
 				B1512BDD149B1239002D2909 /* PVName.m in Sources */,
+				B136B49D17DD96BA00FFA946 /* PVJSONParser.m in Sources */,
+				B136B4A517DDA0A100FFA946 /* PVRegex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,6 +1304,7 @@
 				B1512BA0149B0BE3002D2909 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1512BD3149B0D98002D2909 /* Build configuration list for PBXAggregateTarget "iOS Framework Aggregate" */ = {
 			isa = XCConfigurationList;
@@ -1272,6 +1313,7 @@
 				B1512BD5149B0D98002D2909 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B181F039149070A0000298E5 /* Build configuration list for PBXProject "Broca" */ = {
 			isa = XCConfigurationList;
