@@ -10,6 +10,8 @@
 
 @implementation PVRegex
 
+@synthesize regex;
+
 +(PVRegex *):(NSString *)regexstring :(NSRegularExpressionOptions)options
 {
     return [[PVRegex alloc] initWithRegexString:regexstring options:options];
