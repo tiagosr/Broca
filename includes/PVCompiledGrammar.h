@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "PVSyntaxNode.h"
 #import "PVParserContext.h"
+#import "PVRuleSet.h"
 
 @interface PVCompiledGrammar : NSObject <NSCoding> {
-    PVRule *root;
+    PVRuleSet *ruleset;
 }
-- (id)initWithParserTree:(PVRule *)_root;
+- (id)initWithRuleSet:(PVRuleSet *)_ruleset;
 
-- (PVSyntaxNode *)parseString:(NSString *)str;
+- (PVSyntaxNode *)parseString:(NSString *)str startingRule:(NSString *)rule;
 
 
 @end

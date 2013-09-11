@@ -11,6 +11,5 @@
 @interface PVDot : PVRule
 
 + (PVDot *) dot;
-+ (PVDot *) named:(NSString *)_name;
 
 @end

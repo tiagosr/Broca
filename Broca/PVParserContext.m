@@ -48,14 +48,10 @@
     return NO;
 }
 
-- (void)pushRange:(NSRange)range toParent:(PVSyntaxNode *)parent named:(NSString *)named
+- (void)pushRange:(NSRange)range toParent:(PVSyntaxNode *)parent
 {
     if (parent) {
-        if (named) {
-            [parent.children addObject:[[PVSyntaxNode alloc] initWithName:named source:input range:range]];
-        } else {
-            [parent.children addObject:[input substringWithRange:range]];
-        }
+        [parent.children addObject:[input substringWithRange:range]];
     }
 }
 

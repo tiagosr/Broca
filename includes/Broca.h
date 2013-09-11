@@ -23,6 +23,5 @@
 #import "PVOrderedChoice.h"
 #import "PVPositiveLookAhead.h"
 #import "PVSequence.h"
-#import "PVErrorName.h"
 #import "PVErrorChoice.h"
 

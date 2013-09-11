@@ -10,31 +10,34 @@
 
 @implementation PVCompiledGrammar
 
-- (id)initWithParserTree:(PVRule *)_root
+- (id)initWithRuleSet:(PVRuleSet *)_ruleset
 {
     self = [super init];
     if (self) {
-        root = [_root retain];
+        ruleset = [_ruleset retain];
     }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithParserTree:[coder decodeObjectForKey:@"root"]];
+    self = [self initWithRuleSet:[coder decodeObjectForKey:@"ruleset"]];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:root forKey:@"root"];
+    [coder encodeObject:ruleset forKey:@"ruleset"];
 }
 
-- (PVSyntaxNode *)parseString:(NSString *)str
+- (PVSyntaxNode *)parseString:(NSString *)str startingRule:(NSString *)rule
 {
-    PVParserContext *ctx = [[PVParserContext alloc] initWithInput:str memoTable:[NSArray array]];
-    PVSyntaxNode *root_node = [[PVSyntaxNode alloc] initWithName:@"root" source:str range:NSMakeRange(0, [str length])];
-    [ctx evaluateRule:root parent:root_node];
+    PVParserContext *ctx = [[PVParserContext alloc] initWithInput:str
+                                                        memoTable:[NSArray array]];
+    PVSyntaxNode *root_node = [[PVSyntaxNode alloc] initWithName:rule
+                                                          source:str
+                                                           range:NSMakeRange(0, [str length])];
+    [ctx evaluateRule:[ruleset ruleForKey:rule] parent:root_node];
     return root_node;
 }
 

@@ -27,11 +27,14 @@
 
 - (void)testLiteralParse
 {
-    PVParser *stringparser = [[PVParser alloc] initWithParserTree:[PVLiteral :@"oi"]];
-    PVSyntaxNode *node = [stringparser parseString:@"oi"];
-    PVSyntaxNode *fail = [stringparser parseString:@"tchau"];
+    PVRuleSet *ruleset = [PVRuleSet ruleset];
+    [ruleset setRuleNamed:@"Oi" :[PVLiteral :@"oi"]];
+    PVParser *stringparser = [[PVParser alloc] initWithRuleSet:ruleset];
+    PVSyntaxNode *node = [stringparser parseString:@"oi" fromRule:@"Oi"];
+    PVSyntaxNode *fail = [stringparser parseString:@"tchau" fromRule:@"Oi"];
     STAssertNotNil(node, @"Node should be not nil");
     STAssertTrue([node isKindOfClass:[PVSyntaxNode class]], @"Node should be a PVSyntaxNode");
+    STAssertTrue([node.given_name isEqualToString:@"Oi"], @"Node name should be equal to matched rule");
     STAssertNotNil(node.children, @"there should be children within node");
     STAssertTrue([node.children count]==1, @"there should be only one child");
     STAssertNil(node.error, @"error within node should be nil");
@@ -43,23 +46,6 @@
     STAssertNotNil(fail.children, @"there should be a children array within negative node");
     STAssertTrue([fail.children count]==0, @"there should be no children in negative node");
     
-}
-
-- (void)testNamedParse
-{
-    PVParser *stringparser = [[PVParser alloc] initWithParserTree:[PVLiteral named:@"Oi" :@"oi"]];
-    PVSyntaxNode *pos_node = [stringparser parseString:@"oi"];
-    PVSyntaxNode *neg_node = [stringparser parseString:@"tchau"];
-    STAssertNotNil(pos_node, @"Positive test node should not be nil");
-    STAssertTrue([pos_node isKindOfClass:[PVSyntaxNode class]], @"Positive test node should be a PVSyntaxNode");
-    STAssertTrue([pos_node.given_name isEqualToString:@"Oi"], @"Positive node should be assigned it's name");
-    STAssertNotNil(pos_node.children, @"there should be a children array within node");
-    STAssertTrue([pos_node.children count]==1, @"there should be only one child node");
-    PVSyntaxNode *child = [pos_node childNodeAt:0];
-    STAssertNotNil(child, @"positive test child should not be nil");
-    STAssertTrue([child isKindOfClass:[NSString class]], @"child node should be a PVSyntaxNode");
-    STAssertNotNil(neg_node, @"Negative test node should not be nil");
-    STAssertTrue([neg_node.children count]==0, @"negative test node should have no children");
 }
 
 @end

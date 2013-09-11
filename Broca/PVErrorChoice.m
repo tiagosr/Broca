@@ -10,9 +10,9 @@
 
 @implementation PVErrorChoice
 
-- (id)initWithName:(NSString *)_name error:(NSString *)err choices:(NSArray *)_choices
+- (id)initWithError:(NSString *)err choices:(NSArray *)_choices
 {
-    self = [super initWithName:_name choices:_choices];
+    self = [super initWithChoices:_choices];
     if (self) {
         error = [err copy];
     }
@@ -37,21 +37,7 @@
             [order addObject:obj];
         }
     }
-    return [[PVErrorChoice alloc] initWithName:nil error:error choices:order];
-}
-+ (PVErrorChoice *)named:(NSString *)_name error:(NSString *)error :(PVRule *)first, ...
-{
-    NSMutableArray *order = [NSMutableArray array];
-    va_list args;
-    PVRule *obj;
-    if(first) {
-        [order addObject:first];
-        va_start(args, first);
-        while ((obj = va_arg(args, PVRule *))) {
-            [order addObject:obj];
-        }
-    }
-    return [[PVErrorChoice alloc] initWithName:_name error:error choices:order];
+    return [[PVErrorChoice alloc] initWithError:error choices:order];
 }
 
 
@@ -76,15 +62,13 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithName:[coder decodeObjectForKey:@"name"]
-                        error:[coder decodeObjectForKey:@"error"]
+    self = [self initWithError:[coder decodeObjectForKey:@"error"]
                       choices:[coder decodeObjectForKey:@"choices"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:name forKey:@"name"];
     [coder encodeObject:choices forKey:@"choices"];
     [coder encodeObject:error forKey:@"error"];
 }

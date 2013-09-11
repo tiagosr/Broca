@@ -10,7 +10,7 @@
 
 @interface PVEBNFParserBootstrap : PVCompiledGrammar
 
-+(PVRule *)bootstrap;
-+(PVRule *)compileEBNFString:(NSString *)str;
++(PVRuleSet *)bootstrap;
++(PVRuleSet *)compileEBNFString:(NSString *)str;
 
 @end

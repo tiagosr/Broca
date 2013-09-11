@@ -13,11 +13,11 @@
 
 @implementation PVParser
 
-- (id)initWithParserTree:(PVRule *)root
+- (id)initWithRuleSet:(PVRuleSet *)ruleset
 {
     self = [self init];
     if (self) {
-        g = [[PVCompiledGrammar alloc] initWithParserTree:root];
+        g = [[PVCompiledGrammar alloc] initWithRuleSet:ruleset];
     }
     return self;
 }
@@ -38,14 +38,14 @@
 
 -(id)initWithGrammarString:(NSString *)grammarstring
 {
-    PVRule *ebnf = [PVEBNFParserBootstrap compileEBNFString:grammarstring];    
-    self = [self initWithParserTree:ebnf];
+    PVRuleSet *ebnf = [PVEBNFParserBootstrap compileEBNFString:grammarstring];
+    self = [self initWithRuleSet:ebnf];
     return self;
 }
 
-- (PVSyntaxNode *)parseString:(NSString *)str
+- (PVSyntaxNode *)parseString:(NSString *)str fromRule:(NSString *)rule
 {
-    return [g parseString:str];
+    return [g parseString:str startingRule:rule];
 }
 
 @end

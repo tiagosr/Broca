@@ -28,8 +28,9 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
 @implementation PVEBNFParserBootstrap
 
 // based on the langage.js ebnf parser 
-+ (PVRule *)bootstrap
++ (PVRuleSet *)bootstrap
 {
+    PVRuleSet *ruleset = [PVRuleSet ruleset];
     PVCharacter *WhiteSpace = [PVCharacter charset:[NSCharacterSet whitespaceCharacterSet]];
     PVRule *LineTerminator = [PVCharacter charset:[NSCharacterSet newlineCharacterSet]];
     PVOrderedChoice *LineTerminatorSequence = [PVOrderedChoice :
@@ -40,19 +41,20 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
                                                 [PVLiteral :@"\r"],
                                                 nil];
     PVSequence *SingleLineCommentChar = [PVSequence :[PVNegativeLookAhead :LineTerminator], [PVDot dot], nil];
-    PVRule *SingleLineComment = [PVSequence named:@"SingleLineComment" :[PVLiteral :@"//"], [PVZeroOrMore :SingleLineCommentChar]];
-    PVRule *MultiLineComment = [PVSequence named:@"MultiLineComment" :
+    [ruleset setRuleNamed:@"SingleLineComment" :[PVSequence :[PVLiteral :@"//"], [PVZeroOrMore :SingleLineCommentChar]]];
+    [ruleset setRuleNamed:@"MultiLineComment" :[PVSequence :
                                 [PVLiteral :@"/*"],
                                 [PVZeroOrMore :[PVSequence :[PVNegativeLookAhead :[PVLiteral :@"*/"]],[PVDot dot],nil]],
                                 [PVLiteral :@"*/"],
-                                nil];
-    
-    PVRule *Comment = [PVOrderedChoice named:@"Comment" :SingleLineComment,MultiLineComment,nil];
+                                nil]];
+    [ruleset setRuleNamed:@"Comment" :[PVOrderedChoice
+                                            :[ruleset ref:@"SingleLineComment"],
+                                             [ruleset ref:@"MultiLineComment"],nil]];
     
     // ignored tokens
     PVRule *_ = [PVIgnore :[PVZeroOrMore :[PVOrderedChoice :WhiteSpace,
                                                                         LineTerminator,
-                                                                        Comment,
+                                                                        [ruleset ref:@"Comment"],
                                                                         nil]]];
     
     PVCharacter *UnicodeLetter = [PVCharacter charset:[NSCharacterSet letterCharacterSet]];
@@ -115,7 +117,7 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
                                                             nil]],
                                      [PVSequence :[PVLiteral :@"\\"], EscapeSequence, nil],
                                      nil];
-    PVRule *StringLiteral = [PVOrderedChoice named:@"StringLiteral"  :
+    [ruleset setRuleNamed:@"StringLiteral" :[PVOrderedChoice :
                               [PVSequence :
                                [PVLiteral :@"\""],
                                [PVZeroOrMore :DoubleStringCharacter],
@@ -126,7 +128,7 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
                                [PVZeroOrMore :SingleStringCharacter],
                                [PVLiteral :@"'"],
                                nil],
-                              nil];
+                              nil]];
     PVLiteral *ZWNJ = [PVLiteral :@"\u200C"];
     PVLiteral *ZWJ = [PVLiteral :@"\u200D"];
     PVRule *IdentifierStart = [PVOrderedChoice :UnicodeLetter,
@@ -141,61 +143,61 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
                               ZWNJ,
                               ZWJ,
                               nil];
-    PVRule *Identifier = [PVSequence :IdentifierStart, [PVZeroOrMore :IdentifierPart], nil];
+    [ruleset setRuleNamed:@"Identifier" :[PVSequence :IdentifierStart, [PVZeroOrMore :IdentifierPart], nil]];
     
-    PVForward *ErrorChoiceExpression = [PVForward forward];
-    
-    PVRule *ParentheticalExpression = [PVSequence named:@"ParentheticalExpression"
-                                                       :[PVLiteral :@"("], _,
-                                                        ErrorChoiceExpression, _,
-                                                        [PVLiteral :@")"],nil];
-    PVRule *DotExpression = [PVLiteral named:@"DotExpression" :@"."];
-    PVRule *PrimaryExpression =  [PVOrderedChoice named:@"PrimaryExpression" :
-                                  [PVSequence :Identifier,
+    [ruleset setRuleNamed:@"ParentheticalExpression" :[PVSequence :
+                                                        [PVLiteral :@"("], _,
+                                                        [ruleset ref:@"ErrorChoiceExpression"], _,
+                                                        [PVLiteral :@")"],nil]];
+    [ruleset setRuleNamed:@"DotExpression" :[PVLiteral :@"."]];
+    [ruleset setRuleNamed:@"PrimaryExpression" :[PVOrderedChoice :
+                                  [PVSequence :[ruleset ref:@"Identifier"],
                                    [PVNegativeLookAhead :[PVSequence :_,
                                                           [PVCharacter inString:@"=<"],
                                                           nil]],
                                    nil],
-                                  StringLiteral,
-                                  DotExpression,
+                                  [ruleset ref:@"StringLiteral"],
+                                  [ruleset ref:@"DotExpression"],
                                   CharacterClass,
-                                  ParentheticalExpression,
-                                  nil];
-    PVRule *SuffixedExpression = [PVSequence named:@"SuffixedExpression" :
-                                   PrimaryExpression,
-                                   [PVOptional :[PVSequence :
-                                                 _,
-                                                 [PVCharacter inString:@"?*+"],
-                                                 nil]],
-                                   nil];
-    PVRule *PrefixedExpression =  [PVSequence named:@"PrefixedExpression" :
+                                  [ruleset ref:@"ParentheticalExpression"],
+                                  nil]];
+    [ruleset setRuleNamed:@"SuffixedExpression" :[PVSequence :
+                                                  [ruleset ref:@"PrimaryExpression"],
+                                                  [PVOptional :[PVSequence :
+                                                                _,
+                                                                [PVCharacter inString:@"?*+"],
+                                                                nil]],
+                                                  nil]];
+    [ruleset setRuleNamed:@"PrefixedExpression" :[PVSequence :
                                    [PVOptional :[PVSequence :
                                                  [PVCharacter inString:@"&!"],
                                                  _,
                                                  nil]],
-                                   SuffixedExpression,
-                                   nil];
-    PVRule *SequenceExpression =  [PVOneOrMore named:@"SequenceExpression" :[PVSequence :
-                                                 PrefixedExpression,
-                                                 _,
-                                                 nil]];
-    PVRule *OrderedChoiceExpression =  [PVSequence named:@"OrderedChoiceExpression" :SequenceExpression,
-                                        [PVZeroOrMore :[PVSequence :
-                                                        _,
-                                                        [PVLiteral :@"/"],
-                                                        _,
-                                                        SequenceExpression,
-                                                        nil]], nil];
-    PVRule *fErrorChoiceExpression =  [PVSequence named:@"ErrorChoiceExpression" :
-                                       OrderedChoiceExpression,
-                                       [PVOptional :[PVSequence :
-                                                     _,
-                                                     [PVLiteral :@"%"],
-                                                     _,
-                                                     OrderedChoiceExpression,
-                                                     nil]],
-                                       nil];
-    ErrorChoiceExpression.forwarded = fErrorChoiceExpression;
+                                   [ruleset ref:@"SuffixedExpression"],
+                                   nil]];
+    [ruleset setRuleNamed:@"SequenceExpression" :[PVOneOrMore :[PVSequence :
+                                                                [ruleset ref:@"PrefixedExpression"],
+                                                                _,
+                                                                nil]]];
+    [ruleset setRuleNamed:@"OrderedChoiceExpression" :[PVSequence :
+                                                       [ruleset ref:@"SequenceExpression"],
+                                                       [PVZeroOrMore :
+                                                        [PVSequence :
+                                                         _,
+                                                         [PVLiteral :@"/"],
+                                                         _,
+                                                         [ruleset ref:@"SequenceExpression"],
+                                                         nil]],
+                                                       nil]];
+    [ruleset setRuleNamed:@"ErrorChoiceExpression" :[PVSequence :
+                                                     [ruleset ref:@"OrderedChoiceExpression"],
+                                                     [PVOptional :[PVSequence :
+                                                                   _,
+                                                                   [PVLiteral :@"%"],
+                                                                   _,
+                                                                   [ruleset ref:@"OrderedChoiceExpression"],
+                                                                   nil]],
+                                                     nil]];
     PVRule *AngleBracketCharacter = [PVOrderedChoice :
                                      [PVSequence :
                                       [PVNegativeLookAhead :[PVOrderedChoice :
@@ -210,37 +212,39 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
                                       nil],
                                      LineContinuation,
                                      nil];
-    PVRule *ErrorMessage = [PVSequence named:@"ErrorMessage" :
+    [ruleset setRuleNamed:@"ErrorMessage" :[PVSequence :
                              [PVLiteral :@"<"],
                              AngleBracketCharacter,
                              [PVLiteral :@">"],
-                             nil];
-    PVRule *AssignmentExpression = [PVSequence named:@"AssignmentExpression" :
-                                     Identifier, _,
-                                     [PVLiteral :@"="], _,
-                                     ErrorChoiceExpression,
-                                     nil];
-    PVRule *ErrorAssignmentExpression = [PVSequence named:@"ErrorAssignmentExpression" :
-                                                     Identifier, _,
-                                                     ErrorMessage, _,
-                                                     [PVLiteral :@"="], _,
-                                                     ErrorChoiceExpression,
-                                                     nil];
-    PVRule *SourceElement = [PVOrderedChoice named:@"SourceElement" :
-                             AssignmentExpression,
-                             ErrorAssignmentExpression, nil];
+                             nil]];
+    [ruleset setRuleNamed:@"AssignmentExpression" :[PVSequence  :
+                                    [ruleset ref:@"Identifier"], _,
+                                    [PVLiteral :@"="], _,
+                                    [ruleset ref:@"ErrorChoiceExpression"],
+                                    nil]];
+    [ruleset setRuleNamed:@"ErrorAssignmentExpression" :[PVSequence :
+                                                         [ruleset ref:@"Identifier"], _,
+                                                         [ruleset ref:@"ErrorMessage"], _,
+                                                         [PVLiteral :@"="], _,
+                                                         [ruleset ref:@"ErrorChoiceExpression"],
+                                                         nil]];
+    [ruleset setRuleNamed:@"SourceElement" :[PVOrderedChoice :
+                             [ruleset ref:@"AssignmentExpression"],
+                             [ruleset ref:@"ErrorAssignmentExpression"], nil]];
     // start of the program
-    PVRule *start = [PVSequence named: @"start" :_,[PVZeroOrMore :[PVSequence :SourceElement, _, nil]], nil];
-    return start;
+    [ruleset setRuleNamed:@"start"
+                         :[PVSequence :
+                           _,[PVZeroOrMore :[PVSequence :[ruleset ref:@"SourceElement"], _,
+                                             nil]],
+                           nil]];
+    return ruleset;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
-        if (!root) {
-            root = [PVEBNFParserBootstrap bootstrap];            
-        }
+        ruleset = [PVEBNFParserBootstrap bootstrap];
     }
     return self;
 }
@@ -262,7 +266,7 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
     if (!grammar) {
         grammar = [[PVEBNFParserBootstrap alloc] init];
     }
-    PVSyntaxNode *grammar_node_start = [grammar parseString:str];
+    PVSyntaxNode *grammar_node_start = [grammar parseString:str startingRule:@"start"];
     PVRule *result = nil;
     if ([grammar_node_start.given_name isEqualToString:@"start"]) {
         NSArray *nodes = [[grammar_node_start childNodeAt:0] childNodeAt:0].children;

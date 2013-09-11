@@ -12,9 +12,7 @@
 {
     PVRule *reference;
 }
-- (id) initWithName:(NSString *)_name ref:(PVRule *)ref;
 + (PVPositiveLookAhead *) :(PVRule *)ref;
-+ (PVPositiveLookAhead *) named:(NSString *)_name :(PVRule *)ref;
 
 
 @end

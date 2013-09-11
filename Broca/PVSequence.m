@@ -10,9 +10,9 @@
 
 @implementation PVSequence
 
-- (id)initWithName:(NSString *)_name order:(NSArray *)_order
+- (id)initWithOrder:(NSArray *)_order
 {
-    self = [super initWithName:_name];
+    self = [super init];
     if (self) {
         order = [_order retain];
     }
@@ -38,28 +38,17 @@
             [order addObject:obj];
         }
     }
-    return [[PVSequence alloc] initWithName:nil order:order];
+    return [[PVSequence alloc] initWithOrder:order];
 }
 
 - (BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
-    PVSyntaxNode *old_parent = parent;
-    if (name) {
-        parent = [[PVSyntaxNode alloc] initWithName:name source:ctx.input range:NSMakeRange(ctx.position, 0)];
-    }
     NSUInteger uid = ctx.position;
     for (PVRule *rule in order) {
         if(![ctx evaluateRule:rule parent:parent]) {
             [ctx memoize:uid withBool:NO];
-            if (old_parent != parent) {
-                [parent release];
-                parent = nil;
-            }
             return NO;
         }
-    }
-    if (old_parent != parent) {
-        [old_parent.children addObject:parent];
     }
     return YES;
 }
@@ -70,13 +59,12 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithName:[coder decodeObjectForKey:@"name"] order:[coder decodeObjectForKey:@"order"]];
+    self = [self initWithOrder:[coder decodeObjectForKey:@"order"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:name forKey:@"name"];
     [coder encodeObject:order forKey:@"order"];
 }
 

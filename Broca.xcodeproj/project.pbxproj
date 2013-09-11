@@ -85,6 +85,10 @@
 		B1C18A0417DFADB2005239BC /* PVZeroOrMore.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F0A21491B9C9000298E5 /* PVZeroOrMore.m */; };
 		B1C18A0517DFADB2005239BC /* PVSyntaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B181F07A149071F8000298E5 /* PVSyntaxNode.m */; };
 		B1C18A0617DFADB2005239BC /* PVEBNFParserBootstrap.m in Sources */ = {isa = PBXBuildFile; fileRef = B10E36241493B79D00B277A7 /* PVEBNFParserBootstrap.m */; };
+		B1C18A0B17E00E3A005239BC /* PVRuleSet.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C18A0917E00E38005239BC /* PVRuleSet.h */; };
+		B1C18A0C17E00E3A005239BC /* PVRuleSet.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C18A0917E00E38005239BC /* PVRuleSet.h */; };
+		B1C18A0D17E00E3A005239BC /* PVRuleSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C18A0A17E00E39005239BC /* PVRuleSet.m */; };
+		B1C18A0E17E00E3A005239BC /* PVRuleSet.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C18A0A17E00E39005239BC /* PVRuleSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,8 @@
 		B1C189E417DFA7FE005239BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B1C189E617DFA7FE005239BC /* BrocaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BrocaTests.h; sourceTree = "<group>"; };
 		B1C189E717DFA7FE005239BC /* BrocaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrocaTests.m; sourceTree = "<group>"; };
+		B1C18A0917E00E38005239BC /* PVRuleSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PVRuleSet.h; path = ../Broca/PVRuleSet.h; sourceTree = "<group>"; };
+		B1C18A0A17E00E39005239BC /* PVRuleSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRuleSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +337,7 @@
 				B10E36011491BAAD00B277A7 /* Rule Objects */,
 				B181F07A149071F8000298E5 /* PVSyntaxNode.m */,
 				B10E36221493B76700B277A7 /* EBNF Parser Bootstrap */,
+				B1C18A0A17E00E39005239BC /* PVRuleSet.m */,
 			);
 			path = Broca;
 			sourceTree = "<group>";
@@ -393,6 +400,7 @@
 				B181F079149071F8000298E5 /* PVSyntaxNode.h */,
 				B181F0711490711D000298E5 /* PVParser.h */,
 				B181F07D149076A3000298E5 /* PVSyntaxNodeTraverser.h */,
+				B1C18A0917E00E38005239BC /* PVRuleSet.h */,
 			);
 			path = includes;
 			sourceTree = SOURCE_ROOT;
@@ -489,6 +497,7 @@
 				B196D775149506D60002DEF0 /* PVSyntaxNodeTraverser.h in Headers */,
 				B196D776149506D60002DEF0 /* PVSyntaxNode.h in Headers */,
 				B196D777149506D60002DEF0 /* PVEBNFParserBootstrap.h in Headers */,
+				B1C18A0B17E00E3A005239BC /* PVRuleSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +505,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C18A0C17E00E3A005239BC /* PVRuleSet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +657,7 @@
 				B196D79814958A3F0002DEF0 /* PVIgnore.m in Sources */,
 				B136B49D17DD96BA00FFA946 /* PVJSONParser.m in Sources */,
 				B136B4A517DDA0A100FFA946 /* PVRegex.m in Sources */,
+				B1C18A0D17E00E3A005239BC /* PVRuleSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +688,7 @@
 				B1C18A0517DFADB2005239BC /* PVSyntaxNode.m in Sources */,
 				B1C18A0617DFADB2005239BC /* PVEBNFParserBootstrap.m in Sources */,
 				B1C189D417DFA7FD005239BC /* Broca.m in Sources */,
+				B1C18A0E17E00E3A005239BC /* PVRuleSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

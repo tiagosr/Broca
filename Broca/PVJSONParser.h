@@ -11,7 +11,7 @@
 
 @interface PVJSONParser : PVCompiledGrammar
 
-+(PVRule *)bootstrap;
++(PVRuleSet *)bootstrap;
 +(PVSyntaxNode *)compileJSONString:(NSString *)str;
 
 @end

@@ -17,12 +17,11 @@
 }
 -(id)initWithGrammarString:(NSString *)grammarstring;
 -(id)initWithEncodedGrammar:(NSCoder *)codedGrammar;
--(id)initWithParserTree:(PVRule *)root;
+-(id)initWithRuleSet:(PVRuleSet *)ruleset;
 
 -(void)encodeGrammar:(NSCoder *)coder;
 
-- (PVSyntaxNode *) parseString:(NSString *)str;
 - (PVSyntaxNode *) parseString:(NSString *)str
-              startingFromRule:(NSString *)rule;
+                      fromRule:(NSString *)rule;
 
 @end

@@ -15,6 +15,5 @@
 
 - (id) initWithOrder:(NSArray *)_order;
 + (PVSequence *) :(PVRule *)first, ...;
-+ (PVSequence *) named:(NSString *)_name :(PVRule *)first, ...;
 
 @end

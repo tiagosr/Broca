@@ -12,9 +12,9 @@
 
 @synthesize choices;
 
-- (id)initWithName:(NSString *)_name choices:(NSArray *)_choices
+- (id)initWithChoices:(NSArray *)_choices
 {
-    self = [super initWithName:_name];
+    self = [super init];
     if (self) {
         choices = [_choices retain];
     }
@@ -39,23 +39,9 @@
             [order addObject:obj];
         }
     }
-    return [[PVOrderedChoice alloc] initWithName:nil choices:order];
+    return [[PVOrderedChoice alloc] initWithChoices:order];
 }
 
-+ (PVOrderedChoice *)named:(NSString *)_name :(PVRule *)first, ...
-{
-    NSMutableArray *order = [NSMutableArray array];
-    va_list args;
-    PVRule *obj;
-    if(first) {
-        [order addObject:first];
-        va_start(args, first);
-        while ((obj = va_arg(args, PVRule *))) {
-            [order addObject:obj];
-        }
-    }
-    return [[PVOrderedChoice alloc] initWithName:_name choices:order];
-}
 
 - (BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
@@ -76,13 +62,12 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithName: [coder decodeObjectForKey:@"name"] choices:[coder decodeObjectForKey:@"choices"]];
+    self = [self initWithChoices:[coder decodeObjectForKey:@"choices"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:name forKey:@"name"];
     [coder encodeObject:choices forKey:@"choices"];
 }
 

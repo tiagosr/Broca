@@ -10,9 +10,9 @@
 
 @implementation PVZeroOrMore
 
-- (id)initWithName:(NSString *)_name ref:(PVRule *)ref
+- (id)initWithRef:(PVRule *)ref
 {
-    self = [super initWithName:_name];
+    self = [super init];
     if (self) {
         reference = [ref retain];
     }
@@ -62,13 +62,12 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithName:[coder decodeObjectForKey:@"name"] ref:[coder decodeObjectForKey:@"ref"]];
+    self = [self initWithRef:[coder decodeObjectForKey:@"ref"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:name forKey:@"name"];
     [coder encodeObject:reference forKey:@"ref"];
 }
 

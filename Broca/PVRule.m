@@ -12,15 +12,6 @@
 
 @synthesize name;
 
-- (id)initWithName:(NSString *)_name
-{
-    self = [super init];
-    if (self) {
-        self.name = _name;
-    }
-    return self;
-}
-
 -(BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
     return NO;
@@ -31,13 +22,12 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithName:[coder decodeObjectForKey:@"name"]];
+    self = [self init];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:name forKey:@"name"];
 }
 
 @end
