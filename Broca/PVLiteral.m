@@ -10,7 +10,7 @@
 
 @implementation PVLiteral
 
-- (id)initWithLiteral:(NSString *)lit
+- (id)initWithName:(NSString *)_name literal:(NSString *)lit
 {
     self = [super init];
     if (self) {
@@ -27,15 +27,18 @@
 
 + (PVLiteral *):(NSString *)literal
 {
-    return [[PVLiteral alloc] initWithLiteral:literal];
+    return [[PVLiteral alloc] initWithName:nil literal:literal];
+}
+
++ (PVLiteral *)named:(NSString *)_name :(NSString *)literal
+{
+    return [[PVLiteral alloc] initWithName:_name literal:literal];
 }
 
 - (BOOL) match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
     if ([[ctx.input substringWithRange:NSMakeRange(ctx.position, [literal length])] isEqualToString:literal]) {
-        if (parent) {
-            [parent.children addObject:literal];
-        }
+        [ctx pushRange:NSMakeRange(ctx.position, [literal length]) toParent:parent named:name];
         ctx.position += [literal length];
         return YES;
     }
@@ -48,13 +51,14 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithLiteral:[coder decodeObject]];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"] literal:[coder decodeObjectForKey:@"literal"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:literal];
+    [coder encodeObject:name forKey:@"name"];
+    [coder encodeObject:literal forKey:@"literal"];
 }
 
 @end

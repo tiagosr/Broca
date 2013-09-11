@@ -12,7 +12,10 @@
 {
     PVRule *reference;
 }
--(id)initWithRef:(PVRule *)ref;
-+(PVOneOrMore *):(PVRule *)ref;
+
+- (id) initWithName:(NSString *)_name ref:(PVRule *)ref;
+
++ (PVOneOrMore *) :(PVRule *)ref;
++ (PVOneOrMore *) named:(NSString *)_name :(PVRule *)ref;
 
 @end

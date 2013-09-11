@@ -2,12 +2,18 @@
 //  BrocaTests.h
 //  BrocaTests
 //
-//  Created by Tiago Rezende on 12/8/11.
-//  Copyright 2011 Pixel of View. All rights reserved.
+//  Created by Tiago Rezende on 9/10/13.
+//  Copyright (c) 2013 Pixel of View. All rights reserved.
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "Broca.h"
-@interface BrocaTests : SenTestCase
+#import "PVRule.h"
+#import "PVParser.h"
+#import "PVSyntaxNode.h"
 
+
+@interface BrocaTests : SenTestCase
+{
+    
+}
 @end

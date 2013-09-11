@@ -12,7 +12,7 @@
 {
     NSString *literal;
 }
-- (id)initWithLiteral:(NSString *)lit;
-+ (PVLiteral *):(NSString *)literal;
-
+- (id) initWithName:(NSString *)_name literal:(NSString *)lit;
++ (PVLiteral *) :(NSString *)literal;
++ (PVLiteral *) named:(NSString *)_name :(NSString *)literal;
 @end

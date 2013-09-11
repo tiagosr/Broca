@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Pixel of View. All rights reserved.
 //
 
-#import <Broca/Broca.h>
+#import "PVRule.h"
 
 @interface PVRegex : PVRule
 {
@@ -14,8 +14,9 @@
 }
 @property (readwrite, retain) NSRegularExpression *regex;
 
-+(PVRegex *) :(NSString *)regexstring :(NSRegularExpressionOptions)options;
++ (PVRegex *) :(NSString *)regexstring :(NSRegularExpressionOptions)options;
++ (PVRegex *) named:(NSString *)_name :(NSString *)regexstring :(NSRegularExpressionOptions)options;
 
--(id)initWithRegexString:(NSString *)regexstring options:(NSRegularExpressionOptions)options;
+- (id) initWithName:(NSString *)_name regexString:(NSString *)regexstring options:(NSRegularExpressionOptions)options;
 
 @end

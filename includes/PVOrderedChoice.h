@@ -15,8 +15,9 @@
 
 @property (readonly) NSArray *choices;
 
--(id)initWithChoices:(NSArray *)choices;
+- (id) initWithName:(NSString *)name choices:(NSArray *)choices;
 
-+(PVOrderedChoice *):(PVRule *)first, ...;
++ (PVOrderedChoice *) :(PVRule *)first, ...;
++ (PVOrderedChoice *) named:(NSString *)_name :(PVRule *)first, ...;
 
 @end

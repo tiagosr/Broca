@@ -10,9 +10,9 @@
 
 @implementation PVNegativeLookAhead
 
-- (id)initWithRef:(PVRule *)ref
+- (id)initWithName:(NSString *)_name ref:(PVRule *)ref
 {
-    self = [super init];
+    self = [super initWithName:_name];
     if (self) {
         reference = [ref retain];
     }
@@ -28,7 +28,12 @@
 
 + (PVNegativeLookAhead *):(PVRule *)ref
 {
-    return [[PVNegativeLookAhead alloc] initWithRef:ref];
+    return [[PVNegativeLookAhead alloc] initWithName:nil ref:ref];
+}
+
++ (PVNegativeLookAhead *)named:(NSString *)_name :(PVRule *)ref
+{
+    return [[PVNegativeLookAhead alloc] initWithName:_name ref:ref];
 }
 
 #pragma mark -
@@ -49,12 +54,13 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithRef:[coder decodeObject]];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"] ref:[coder decodeObjectForKey:@"ref"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:reference];
+    [coder encodeObject:name forKey:@"name"];
+    [coder encodeObject:reference forKey:@"ref"];
 }
 @end

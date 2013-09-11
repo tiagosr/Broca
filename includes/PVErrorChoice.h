@@ -13,5 +13,6 @@
     NSString *error;
 }
 
-+(PVErrorChoice *):(PVRule *)first, ...;
++ (PVErrorChoice *) error:(NSString *)error :(PVRule *)first, ...;
++ (PVErrorChoice *) named:(NSString *)_name error:(NSString *)error :(PVRule *)first, ...;
 @end

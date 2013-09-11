@@ -11,8 +11,6 @@
 #import "PVCharacter.h"
 #import "PVDot.h"
 #import "PVErrorChoice.h"
-#import "PVErrorName.h"
-#import "PVName.h"
 #import "PVNegativeLookAhead.h"
 #import "PVOneOrMore.h"
 #import "PVOptional.h"
@@ -23,7 +21,9 @@
 #import "PVZeroOrMore.h"
 #import "PVForward.h"
 #import "PVRegex.h"
+#import "PVParser.h"
 
+static PVCompiledGrammar *jsonparser = nil;
 
 @implementation PVJSONParser
 
@@ -32,32 +32,39 @@
     PVIgnore *_ = [PVIgnore :[PVZeroOrMore :[PVCharacter inString:@" \t\n\r"]]];
     PVForward *dict = [PVForward forward];
     PVForward *array = [PVForward forward];
-    PVRegex *string = [PVRegex :@"\"([^\"\\\\]*|\\\\[\"\\\\bfnrt/]|\\\\u[0-9a-f]{4}))*\"" :0];
-    PVRegex *symbol = [PVRegex :@"[a-zA-Z_$][a-zA-Z_$0-9]*" :0];
-    PVOrderedChoice *keyword = [PVOrderedChoice :[PVLiteral :@"true"], [PVLiteral :@"false"], [PVLiteral :@"null"]];
-    PVRegex *number = [PVRegex :@"-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?" :0];
+    PVRule *string = [PVRegex named:@"string" :@"\"([^\"\\\\]*|\\\\[\"\\\\bfnrt/]|\\\\u[0-9a-f]{4}))*\"" :0];
+    PVRule *symbol = [PVRegex named:@"symbol" :@"[a-zA-Z_$][a-zA-Z_$0-9]*" :0];
+    PVRule *keyword = [PVOrderedChoice named:@"keyword" :[PVLiteral :@"true"], [PVLiteral :@"false"], [PVLiteral :@"null"], nil];
+    PVRule *number = [PVRegex named:@"number" :@"-?(?=[1-9]|0(?!\\d))\\d+(\\.\\d+)?([eE][+-]?\\d+)?" :0];
     PVIgnore *separator_comma = [PVIgnore :[PVLiteral :@","]];
-    PVOrderedChoice *value = [PVOrderedChoice :dict, array, string, keyword, number];
-    PVSequence *value_comma = [PVSequence :value, _, separator_comma];
-    PVSequence *key_value = [PVSequence :_, [PVOrderedChoice :symbol, string], _,
-                             [PVLiteral :@":"], _, value, _];
-    PVSequence *key_value_comma = [PVSequence :key_value, _, separator_comma, _];
+    PVOrderedChoice *value = [PVOrderedChoice :dict, array, string, keyword, number, nil];
+    PVSequence *value_comma = [PVSequence :value, _, separator_comma, nil];
+    PVSequence *key_value = [PVSequence :_, [PVOrderedChoice :symbol, string, nil], _,
+                             [PVIgnore :[PVLiteral :@":"]], _, value, _, nil];
+    PVSequence *key_value_comma = [PVSequence :key_value, _, separator_comma, _, nil];
 
-    PVSequence *farray = [PVSequence :[PVLiteral :@"["], _, [PVZeroOrMore :value_comma], [PVOptional :value], [PVLiteral :@"]"]];
-    PVSequence *fdict = [PVSequence :_, [PVLiteral :@"{"],
-                                    [PVZeroOrMore :key_value_comma],
-                                    [PVOptional :key_value],
-                                    [PVLiteral :@"}"], _];
-
+    PVRule *farray = [PVSequence named:@"array" :
+                      [PVLiteral :@"["], _,
+                      [PVZeroOrMore :value_comma],
+                      [PVOptional :value],
+                      [PVLiteral :@"]"],
+                      nil];
+    PVRule *fdict = [PVSequence named:@"object" :_,
+                                [PVLiteral :@"{"],
+                                        [PVZeroOrMore :key_value_comma],
+                                        [PVOptional :key_value],
+                                        [PVLiteral :@"}"], _, nil];
     array.forwarded = farray;
     dict.forwarded = fdict;
-    PVName * start = [PVName :@"start" :dict];
-    return start;
+    return dict;
 }
 
 +(PVSyntaxNode *)compileJSONString:(NSString *)str
 {
-    
+    if (!jsonparser) {
+        jsonparser = [[PVCompiledGrammar alloc] initWithParserTree:[PVJSONParser bootstrap]];
+    }
+    return [jsonparser parseString:str];
 }
 
 @end

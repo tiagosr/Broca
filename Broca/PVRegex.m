@@ -14,12 +14,17 @@
 
 +(PVRegex *):(NSString *)regexstring :(NSRegularExpressionOptions)options
 {
-    return [[PVRegex alloc] initWithRegexString:regexstring options:options];
+    return [[PVRegex alloc] initWithName:nil regexString:regexstring options:options];
+}
++(PVRegex *)named:(NSString *)_name :(NSString *)regexstring :(NSRegularExpressionOptions)options
+{
+    return [[PVRegex alloc] initWithName:_name regexString:regexstring options:options];
 }
 
--(id)initWithRegexString:(NSString *)regexstring options:(NSRegularExpressionOptions)options
+
+-(id)initWithName:(NSString *)_name regexString:(NSString *)regexstring options:(NSRegularExpressionOptions)options
 {
-    self = [self init];
+    self = [self initWithName:_name];
     if (self) {
         self.regex = [NSRegularExpression regularExpressionWithPattern:regexstring
                                                                options:options error:NULL];
@@ -32,9 +37,7 @@
     NSRange range = NSMakeRange(ctx.position, [ctx.input length]-ctx.position);
     NSTextCheckingResult * match = [self.regex firstMatchInString:ctx.input options:NSMatchingAnchored range:range];
     if (match) {
-        if (parent) {
-            [parent.children addObject:match.components];
-        }
+        [ctx pushRange:[match range] toParent:parent named:name];
         ctx.position += [match range].length;
         return YES;
     }
@@ -43,13 +46,15 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    
-    self = [self initWithRegexString:[coder decodeObjectForKey:@"pattern"] options:[coder decodeIntForKey:@"options"]];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"]
+                  regexString:[coder decodeObjectForKey:@"pattern"]
+                      options:[coder decodeIntForKey:@"options"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
+    [super encodeWithCoder:coder];
     [coder encodeObject:regex.pattern forKey:@"pattern"];
     [coder encodeInt:regex.options forKey:@"options"];
 }

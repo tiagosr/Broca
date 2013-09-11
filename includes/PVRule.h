@@ -11,7 +11,12 @@
 #import "PVParserContext.h"
 
 @interface PVRule : NSObject <NSCoding>
+{
+    NSString *name;
+}
+@property (readwrite, copy) NSString *name;
 
--(BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent;
+- (id) initWithName:(NSString *)name;
+- (BOOL) match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent;
 
 @end

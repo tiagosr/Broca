@@ -19,9 +19,12 @@
 @property (readonly) NSString *input;
 @property (readonly) NSMutableDictionary *memos;
 
--(id)initWithInput:(NSString *)_in memoTable:(NSArray *)mtable;
--(BOOL)evaluateRule:(PVRule *)rule parent:(PVSyntaxNode *)node;
--(void)memoize:(NSUInteger)pos with:(NSObject *)obj;
--(void)memoize:(NSUInteger)pos withBool:(BOOL)b;
+- (id)initWithInput:(NSString *)_in memoTable:(NSArray *)mtable;
+- (BOOL)evaluateRule:(PVRule *)rule parent:(PVSyntaxNode *)node;
+- (void)pushRange:(NSRange)range
+         toParent:(PVSyntaxNode *)parent
+            named:(NSString *)named;
+- (void)memoize:(NSUInteger)pos with:(NSObject *)obj;
+- (void)memoize:(NSUInteger)pos withBool:(BOOL)b;
 
 @end

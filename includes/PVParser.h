@@ -22,6 +22,7 @@
 -(void)encodeGrammar:(NSCoder *)coder;
 
 - (PVSyntaxNode *) parseString:(NSString *)str;
-
+- (PVSyntaxNode *) parseString:(NSString *)str
+              startingFromRule:(NSString *)rule;
 
 @end

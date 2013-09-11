@@ -10,9 +10,9 @@
 
 @implementation PVErrorChoice
 
-- (id)initWithError:(NSString *)err choices:(NSArray *)_choices
+- (id)initWithName:(NSString *)_name error:(NSString *)err choices:(NSArray *)_choices
 {
-    self = [super initWithChoices:_choices];
+    self = [super initWithName:_name choices:_choices];
     if (self) {
         error = [err copy];
     }
@@ -25,7 +25,7 @@
     [super dealloc];
 }
 
-+ (PVOrderedChoice *) :(PVRule *)first, ...
++ (PVErrorChoice *) error:(NSString *)error :(PVRule *)first, ...
 {
     NSMutableArray *order = [NSMutableArray array];
     va_list args;
@@ -37,8 +37,23 @@
             [order addObject:obj];
         }
     }
-    return [[PVOrderedChoice alloc] initWithChoices:order];
+    return [[PVErrorChoice alloc] initWithName:nil error:error choices:order];
 }
++ (PVErrorChoice *)named:(NSString *)_name error:(NSString *)error :(PVRule *)first, ...
+{
+    NSMutableArray *order = [NSMutableArray array];
+    va_list args;
+    PVRule *obj;
+    if(first) {
+        [order addObject:first];
+        va_start(args, first);
+        while ((obj = va_arg(args, PVRule *))) {
+            [order addObject:obj];
+        }
+    }
+    return [[PVErrorChoice alloc] initWithName:_name error:error choices:order];
+}
+
 
 #pragma mark -
 #pragma mark match method
@@ -61,12 +76,15 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithError:[coder decodeObjectForKey:@"error"] choices:[coder decodeObjectForKey:@"choices"]];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"]
+                        error:[coder decodeObjectForKey:@"error"]
+                      choices:[coder decodeObjectForKey:@"choices"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
+    [coder encodeObject:name forKey:@"name"];
     [coder encodeObject:choices forKey:@"choices"];
     [coder encodeObject:error forKey:@"error"];
 }

@@ -14,6 +14,6 @@
 }
 @property (readwrite, retain) PVRule *forwarded;
 
-+(PVForward *)forward;
++ (PVForward *) forward;
 
 @end

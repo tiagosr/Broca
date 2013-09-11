@@ -10,13 +10,12 @@
 
 @implementation PVOneOrMore
 
-- (id)initWithRef:(PVRule *)ref
+- (id)initWithName:(NSString *)_name ref:(PVRule *)ref
 {
-    self = [super init];
+    self = [super initWithName:_name];
     if (self) {
         reference = [ref retain];
     }
-    
     return self;
 }
 
@@ -28,7 +27,11 @@
 
 + (PVOneOrMore *):(PVRule *)ref
 {
-    return [[PVOneOrMore alloc] initWithRef:ref];
+    return [PVOneOrMore named:nil :ref];
+}
++ (PVOneOrMore *)named:(NSString *)_name :(PVRule *)ref
+{
+    return [[PVOneOrMore alloc] initWithName:_name ref:ref];
 }
 
 #pragma mark -
@@ -36,6 +39,10 @@
 
 - (BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
+    PVSyntaxNode *old_parent = parent;
+    if (name) {
+        parent = [[PVSyntaxNode alloc] initWithName:name source:ctx.input range:NSMakeRange(ctx.position, 0)];
+    }
     NSUInteger pos = ctx.position;
     NSUInteger len = parent?[parent.children count]:0;
     if (![ctx evaluateRule:reference parent:parent]) {
@@ -46,6 +53,10 @@
             if (remove_len) {
                 [parent.children removeObjectsInRange:NSMakeRange(len, remove_len)];
             }
+        }
+        if (old_parent != parent) {
+            [parent release];
+            parent = old_parent;
         }
         return NO;
     }
@@ -62,6 +73,9 @@
             [parent.children removeObjectsInRange:NSMakeRange(len, remove_len)];
         }
     }
+    if (old_parent != parent) {
+        [old_parent.children addObject:parent];
+    }
     return YES;
 }
 
@@ -70,12 +84,13 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithRef:[coder decodeObject]];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"] ref:[coder decodeObjectForKey:@"ref"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
-    [coder encodeObject:reference];
+    [coder encodeObject:name forKey:@"name"];
+    [coder encodeObject:reference forKey:@"ref"];
 }
 @end

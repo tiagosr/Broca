@@ -13,9 +13,7 @@
 -(BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
     if (ctx.position < [ctx.input length]) {
-        if (parent) {
-            [parent.children addObject:[ctx.input substringWithRange:NSMakeRange(ctx.position, 1)]];
-        }
+        [ctx pushRange:NSMakeRange(ctx.position, 1) toParent:parent named:name];
         ctx.position ++;
         return YES;
     }
@@ -25,7 +23,12 @@
 
 + (PVDot *)dot
 {
-    return [[PVDot alloc] init];
+    return [[PVDot alloc] initWithName:nil];
+}
+
++ (PVDot *)named:(NSString *)_name
+{
+    return [[PVDot alloc] initWithName:_name];
 }
 
 @end

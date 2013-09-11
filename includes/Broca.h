@@ -16,7 +16,6 @@
 #import "PVForward.h"
 #import "PVIgnore.h"
 #import "PVLiteral.h"
-#import "PVName.h"
 #import "PVNegativeLookAhead.h"
 #import "PVZeroOrMore.h"
 #import "PVOneOrMore.h"

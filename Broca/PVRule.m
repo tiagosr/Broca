@@ -10,13 +10,14 @@
 
 @implementation PVRule
 
-- (id)init
+@synthesize name;
+
+- (id)initWithName:(NSString *)_name
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        self.name = _name;
     }
-    
     return self;
 }
 
@@ -30,12 +31,13 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self init];
+    self = [self initWithName:[coder decodeObjectForKey:@"name"]];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
+    [coder encodeObject:name forKey:@"name"];
 }
 
 @end

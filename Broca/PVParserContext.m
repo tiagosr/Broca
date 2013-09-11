@@ -48,6 +48,17 @@
     return NO;
 }
 
+- (void)pushRange:(NSRange)range toParent:(PVSyntaxNode *)parent named:(NSString *)named
+{
+    if (parent) {
+        if (named) {
+            [parent.children addObject:[[PVSyntaxNode alloc] initWithName:named source:input range:range]];
+        } else {
+            [parent.children addObject:[input substringWithRange:range]];
+        }
+    }
+}
+
 - (void)memoize:(NSUInteger)pos with:(NSObject *)obj
 {
     [memos setObject:obj forKey:[NSNumber numberWithLong:pos]];

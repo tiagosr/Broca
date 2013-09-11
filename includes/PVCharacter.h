@@ -15,9 +15,11 @@
 
 @property (readonly) NSCharacterSet *charset;
 
-- (id)initWithCharset:(NSCharacterSet *)chars;
+- (id) initWithName:(NSString *)_name charset:(NSCharacterSet *)chars;
 
-+ (PVCharacter *)charset:(NSCharacterSet *)chars;
-+ (PVCharacter *)inString:(NSString *)str;
++ (PVCharacter *) charset:(NSCharacterSet *)chars;
++ (PVCharacter *) inString:(NSString *)str;
++ (PVCharacter *) named:(NSString *)_name charset:(NSCharacterSet *)chars;
++ (PVCharacter *) named:(NSString *)_name inString:(NSString *)str;
 
 @end

@@ -12,9 +12,9 @@
 
 @synthesize charset;
 
-- (id)initWithCharset:(NSCharacterSet *)chars
+- (id)initWithName:(NSString *)_name charset:(NSCharacterSet *)chars
 {
-    self = [super init];
+    self = [super initWithName:_name];
     if (self) {
         self->charset = [chars copy];
     }
@@ -24,20 +24,29 @@
 
 + (PVCharacter *)charset:(NSCharacterSet *)chars
 {
-    return [[PVCharacter alloc] initWithCharset:chars];
+    return [[PVCharacter alloc] initWithName:nil charset:chars];
 }
 
 + (PVCharacter *)inString:(NSString *)str
 {
-    return [[PVCharacter alloc] initWithCharset:[NSCharacterSet characterSetWithCharactersInString:str]];
+    return [[PVCharacter alloc] initWithName:nil charset:[NSCharacterSet characterSetWithCharactersInString:str]];
+}
+
++ (PVCharacter *)named:(NSString *)_name charset:(NSCharacterSet *)chars
+{
+    return [[PVCharacter alloc] initWithName:_name charset:chars];
+}
+
++ (PVCharacter *)named:(NSString *)_name inString:(NSString *)str
+{
+    return [[PVCharacter alloc] initWithName:_name charset:[NSCharacterSet characterSetWithCharactersInString:str]];
 }
 
 - (BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
     unichar character = [ctx.input characterAtIndex:ctx.position];
     if ([charset characterIsMember:character]) {
-        if (parent)
-            [parent.children addObject:[NSString stringWithCharacters:&character length:1]];
+        [ctx pushRange:NSMakeRange(ctx.position, 1) toParent:parent named:name];
         ctx.position++;
         return YES;
     }
@@ -50,12 +59,14 @@
 
 -(id)initWithCoder:(NSCoder *)coder
 {
-    self = [self initWithCharset:[coder decodeObjectForKey:@"charset"]];
+    self = [super initWithCoder:coder];
+    charset = [coder decodeObjectForKey:@"charset"];
     return self;
 }
 
 -(void)encodeWithCoder:(NSCoder *)coder
 {
+    [super encodeWithCoder:coder];
     [coder encodeObject:charset forKey:@"charset"];
 }
 
