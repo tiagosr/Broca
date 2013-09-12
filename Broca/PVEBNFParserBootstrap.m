@@ -268,7 +268,7 @@ static PVRule * EBNF_ParseAssignmentExpression(PVSyntaxNode *node, PVRule *paren
     }
     PVSyntaxNode *grammar_node_start = [grammar parseString:str startingRule:@"start"];
     PVRule *result = nil;
-    if ([grammar_node_start.given_name isEqualToString:@"start"]) {
+    if ([grammar_node_start.name isEqualToString:@"start"]) {
         NSArray *nodes = [[grammar_node_start childNodeAt:0] childNodeAt:0].children;
         NSMutableArray *node_results = [[NSMutableArray alloc] init];
         for (PVSyntaxNode *node in nodes) {

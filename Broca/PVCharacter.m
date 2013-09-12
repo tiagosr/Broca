@@ -41,6 +41,7 @@
         ctx.position++;
         return YES;
     }
+    [ctx pushError:@"unexpected character" forRange:NSMakeRange(ctx.position, 1) toParent:parent];
     [ctx memoize:ctx.position withBool:NO];
     return NO;
 }

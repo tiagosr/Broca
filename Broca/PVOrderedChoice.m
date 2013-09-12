@@ -46,7 +46,14 @@
 - (BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
     NSUInteger pos = ctx.position;
+    NSUInteger len = 0;
+    if (parent) {
+        len = [parent.children count];
+    }
     for (PVRule *rule in choices) {
+        if (parent) {
+            [parent removeChildrenAfter:len];
+        }
         if ([ctx evaluateRule:rule parent:parent]) {
             return YES;
         }

@@ -41,10 +41,7 @@
     if (![ctx evaluateRule:reference parent:parent]) {
         ctx.position = pos;
         if (parent) {
-            NSUInteger remove_len = [parent.children count]-len;
-            if (remove_len) {
-                [parent.children removeObjectsInRange:NSMakeRange(len, remove_len)];
-            }
+            [parent removeChildrenAfter:len];
         }
     }
     return YES;

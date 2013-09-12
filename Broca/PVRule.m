@@ -14,6 +14,7 @@
 
 -(BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
+    [ctx pushError:@"invalid rule" forRange:NSMakeRange(ctx.position, 0) toParent:parent];
     return NO;
 }
 

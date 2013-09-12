@@ -37,6 +37,7 @@
         ctx.position += [match range].length;
         return YES;
     }
+    [ctx pushError:@"match unsuccessful" forRange:NSMakeRange(ctx.position, 0) toParent:parent];
     return NO;
 }
 

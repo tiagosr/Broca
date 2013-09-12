@@ -41,11 +41,19 @@
 
 -(BOOL)match:(PVParserContext *)ctx parent:(PVSyntaxNode *)parent
 {
-    PVSyntaxNode *new_parent = [[PVSyntaxNode alloc] initWithName:ref source:ctx.input range:NSMakeRange(ctx.position, 0)];
-    BOOL result = [[ruleset ruleForKey:ref] match:ctx parent:new_parent];
-    new_parent.range = NSMakeRange(new_parent.range.location, ctx.position - new_parent.range.location);
-    [parent.children addObject:new_parent];
-    return result;
+    PVRule *rule = [ruleset ruleForKey:ref];
+    if (rule) {
+        NSLog(@"matching rule %@",ref);
+        PVSyntaxNode *new_parent = [[PVSyntaxNode alloc] initWithName:ref source:ctx.input range:NSMakeRange(ctx.position, 0)];
+        [parent.children addObject:new_parent];
+        BOOL result = [rule match:ctx parent:new_parent];
+        new_parent.range = NSMakeRange(new_parent.range.location, ctx.position - new_parent.range.location);
+        return result;
+    } else {
+        NSLog(@"rule %@ not matched",ref);
+        [ctx pushError:[@"rule not found: " stringByAppendingString:ref] forRange:NSMakeRange(ctx.position, 0) toParent:parent];
+        return NO;
+    }
 }
 
 -(id) initWithCoder:(NSCoder *)coder
@@ -94,13 +102,16 @@
 
 -(PVRule *)ref:(NSString *)rule
 {
-    return [[PVRuleReference alloc] initWithRuleset:self referenceTo:rule];
+    PVRuleReference *ref = [[PVRuleReference alloc] initWithRuleset:self referenceTo:rule];
+    NSLog(@"making ref for %@: %@", rule, ref);
+    return ref;
 }
 
 +(PVRuleSet *)ruleset;
 {
     return [[PVRuleSet alloc] init];
 }
+
 
 #pragma mark -
 #pragma mark NSCoding methods

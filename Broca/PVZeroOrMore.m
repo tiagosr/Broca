@@ -28,7 +28,7 @@
 
 + (PVZeroOrMore *)named:(NSString *)_name :(PVRule *)ref
 {
-    return [[PVZeroOrMore alloc] initWithName:_name ref:ref];
+    return [[PVZeroOrMore alloc] initWithRef:ref];
 }
 + (PVZeroOrMore *):(PVRule *)ref
 {

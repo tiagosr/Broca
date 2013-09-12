@@ -22,6 +22,7 @@
 - (id)initWithInput:(NSString *)_in memoTable:(NSArray *)mtable;
 - (BOOL)evaluateRule:(PVRule *)rule parent:(PVSyntaxNode *)node;
 - (void)pushRange:(NSRange)range toParent:(PVSyntaxNode *)parent;
+- (void)pushError:(NSString *)error forRange:(NSRange)range toParent:(PVSyntaxNode *)parent;
 - (void)memoize:(NSUInteger)pos with:(NSObject *)obj;
 - (void)memoize:(NSUInteger)pos withBool:(BOOL)b;
 

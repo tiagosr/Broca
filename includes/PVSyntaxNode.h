@@ -15,7 +15,7 @@
     NSString *source;
     NSMutableArray *children;
     PVSyntaxNode *parent;
-    NSString *given_name;
+    NSString *name;
     NSString *error;
     NSMutableArray *node_errors;
 }
@@ -23,13 +23,14 @@
 @property (readwrite, retain) NSString *source;
 @property (readonly) NSMutableArray *children;
 @property (readonly) NSString *error;
-@property (readonly) NSString *given_name;
+@property (readonly) NSString *name;
 
 - (id)initWithName:(NSString *)name source:(NSString *)str_source range:(NSRange)str_range;
 - (id)initWithName:(NSString *)name source:(NSString *)str_source range:(NSRange)str_range error:(NSString *)err_text;
 - (NSString *)innerText;
 - (void)traverse:(id<PVSyntaxNodeTraverser>)walker;
 - (PVSyntaxNode *)childNodeAt:(NSUInteger)index;
+- (void)removeChildrenAfter:(NSUInteger)index;
 - (NSString *)description;
 
 @end

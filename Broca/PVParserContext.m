@@ -35,6 +35,9 @@
 
 - (BOOL)evaluateRule:(PVRule *)rule parent:(PVSyntaxNode *)parent
 {
+    return [rule match:self parent:parent];
+    
+    //// here on in this function lies some trouble with memoizing.
     NSObject *node = [memos objectForKey:[NSNumber numberWithLong:position]];
     if (!node) {
         return [rule match:self parent:parent];
@@ -52,6 +55,16 @@
 {
     if (parent) {
         [parent.children addObject:[input substringWithRange:range]];
+    }
+}
+
+- (void)pushError:(NSString *)error forRange:(NSRange)range toParent:(PVSyntaxNode *)parent
+{
+    if (parent) {
+        [parent.children addObject:[[PVSyntaxNode alloc] initWithName:@"error"
+                                                               source:input
+                                                                range:range
+                                                                error:error]];
     }
 }
 

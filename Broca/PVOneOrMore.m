@@ -45,10 +45,7 @@
         ctx.position = pos;
         [ctx memoize:pos withBool:NO];
         if (parent) {
-            NSUInteger remove_len = [parent.children count]-len;
-            if (remove_len) {
-                [parent.children removeObjectsInRange:NSMakeRange(len, remove_len)];
-            }
+            [parent removeChildrenAfter:len];
         }
         return NO;
     }
@@ -60,10 +57,7 @@
     }
     ctx.position = pos;
     if (parent) {
-        NSUInteger remove_len = [parent.children count]-len;
-        if (remove_len) {
-            [parent.children removeObjectsInRange:NSMakeRange(len, remove_len)];
-        }
+        [parent removeChildrenAfter:len];
     }
     return YES;
 }

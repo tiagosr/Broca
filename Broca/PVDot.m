@@ -17,6 +17,7 @@
         ctx.position ++;
         return YES;
     }
+    [ctx pushError:@"end of input unexpected" forRange:NSMakeRange(ctx.position, 0) toParent:parent];
     [ctx memoize:ctx.position withBool:NO];
     return NO;
 }
