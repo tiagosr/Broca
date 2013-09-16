@@ -82,25 +82,29 @@
     }
     if (name) {
         if (error) {
-            return [NSString stringWithFormat:@"%@<%s(%@: %@)@0x%X (from %ld to %ld): children:%@>",
+            return [NSString stringWithFormat:@"%@<%s(%@: %@)@0x%X (from %ld to %ld): children:%@%@>",
                     spaces, class_getName([self class]), name, error,
-                    (unsigned)(void*)self, (unsigned long)range.location, (unsigned long)(range.location+range.length), children_str];
+                    (unsigned)(void*)self, (unsigned long)range.location,
+                    (unsigned long)(range.location+range.length), children_str, spaces];
             
         } else {
-            return [NSString stringWithFormat:@"%@<%s(%@)@0x%X (from %ld to %ld): children:%@>",
+            return [NSString stringWithFormat:@"%@<%s(%@)@0x%X (from %ld to %ld): children:%@%@>",
                     spaces, class_getName([self class]), name,
-                    (unsigned)(void*)self, (unsigned long)range.location, (unsigned long)(range.location+range.length), children_str];
+                    (unsigned)(void*)self, (unsigned long)range.location,
+                    (unsigned long)(range.location+range.length), children_str, spaces];
         }
     } else {
         if (error) {
-            return [NSString stringWithFormat:@"%@<%s(: %@)@0x%X (from %ld to %ld): children:%@>",
+            return [NSString stringWithFormat:@"%@<%s(: %@)@0x%X (from %ld to %ld): children:%@%@>",
                     spaces, class_getName([self class]), error,
-                    (unsigned)(void*)self, (unsigned long)range.location, (unsigned long)(range.location+range.length), children_str];
+                    (unsigned)(void*)self, (unsigned long)range.location,
+                    (unsigned long)(range.location+range.length), children_str, spaces];
             
         } else {
-            return [NSString stringWithFormat:@"%@<%s@0x%X (from %ld to %ld): children:%@>",
+            return [NSString stringWithFormat:@"%@<%s@0x%X (from %ld to %ld): children:%@%@>",
                     spaces, class_getName([self class]),
-                    (unsigned)(void*)self, (unsigned long)range.location, (unsigned long)(range.location+range.length), children_str];
+                    (unsigned)(void*)self, (unsigned long)range.location,
+                    (unsigned long)(range.location+range.length), children_str, spaces];
         }
     }
     

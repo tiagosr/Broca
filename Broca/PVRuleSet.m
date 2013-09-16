@@ -43,14 +43,14 @@
 {
     PVRule *rule = [ruleset ruleForKey:ref];
     if (rule) {
-        NSLog(@"matching rule %@",ref);
+        //NSLog(@"matching rule %@",ref);
         PVSyntaxNode *new_parent = [[PVSyntaxNode alloc] initWithName:ref source:ctx.input range:NSMakeRange(ctx.position, 0)];
         [parent.children addObject:new_parent];
         BOOL result = [rule match:ctx parent:new_parent];
         new_parent.range = NSMakeRange(new_parent.range.location, ctx.position - new_parent.range.location);
         return result;
     } else {
-        NSLog(@"rule %@ not matched",ref);
+        //NSLog(@"rule %@ not matched",ref);
         [ctx pushError:[@"rule not found: " stringByAppendingString:ref] forRange:NSMakeRange(ctx.position, 0) toParent:parent];
         return NO;
     }
@@ -103,7 +103,7 @@
 -(PVRule *)ref:(NSString *)rule
 {
     PVRuleReference *ref = [[PVRuleReference alloc] initWithRuleset:self referenceTo:rule];
-    NSLog(@"making ref for %@: %@", rule, ref);
+    //NSLog(@"making ref for %@: %@", rule, ref);
     return ref;
 }
 

@@ -45,7 +45,7 @@
 {
     NSUInteger uid = ctx.position;
     for (PVRule *rule in order) {
-        NSLog(@"PVSequence at: %ld", ctx.position);
+        //NSLog(@"PVSequence at: %ld", ctx.position);
         if(![ctx evaluateRule:rule parent:parent]) {
             [ctx pushError:@"incomplete sequence" forRange:NSMakeRange(ctx.position, 0) toParent:parent];
             [ctx memoize:uid withBool:NO];
